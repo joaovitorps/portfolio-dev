@@ -1,0 +1,35 @@
+#intro {
+  background: center/cover url("../assets/Background_Intro.png");
+
+  & > div {
+    width: 1040px;
+    height: 447px;
+    margin: auto;
+
+    & > header {
+      margin-inline: auto;
+      row-gap: 56px;
+      align-items: center;
+    }
+  }
+}
+
+#avatar {
+  position: relative;
+
+  & > img {
+    border: 2px solid var(--red);
+    width: 87.27px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 4.36px;
+  }
+
+  span {
+    position: absolute;
+    padding: 20px;
+    background: no-repeat center/32px url(/assets/icons/Code.svg);
+    right: -12%;
+    bottom: 0%;
+  }
+}
