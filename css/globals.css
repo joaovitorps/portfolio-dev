@@ -34,7 +34,13 @@
   --text-sm: 14px/140% var(--font-family-maven-pro);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font: var(--text-md);
   color: var(--gray-100);
+
+  min-width: 1366px;
 }

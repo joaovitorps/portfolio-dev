@@ -13,16 +13,18 @@
     />
   </head>
   <body>
-    <section id="intro">
-      <div>
+    <section id="intro" class="flex flex-column">
+      <div class="flex flex-column">
         <header class="flex flex-column">
           <figure id="avatar">
-            <img src="/assets/Image.png" alt="" />
+            <img src="/assets/pfp.jpg" alt="" />
             <span></span>
           </figure>
-          <div id="about">
-            <p>Hello World! Meu nome é Martina Santos e sou</p>
-            <h1>Desenvolvedora Fullstack</h1>
+          <div id="about" class="flex flex-column">
+            <section>
+              <p>Hello World! Meu nome é</p>
+              <h1>Desenvolvedor Fullstack</h1>
+            </section>
             <p>
               Transformo necessidades em aplicações reais, evolventes e
               funcionais. Desenvolvo sistemas através da minha paixão pela
@@ -31,14 +33,94 @@
             </p>
           </div>
         </header>
-        <div id="tags">
-          <div>
-            <span><img src="/assets/icons/GitHub.svg" alt="" /></span>
+        <div id="tags" class="flex">
+          <span class="badge">
+            <img src="/assets/icons/GitHub.svg" alt="" />
             <p>GitHub</p>
+          </span>
+          <span class="badge">
+            <img src="/assets/icons/HTML.svg" alt="" />
+            <p>HTML</p>
+          </span>
+          <span class="badge">
+            <img src="/assets/icons/CSS.svg" alt="" />
+            <p>CSS</p>
+          </span>
+          <span class="badge">
+            <img src="/assets/icons/JavaScript.svg" alt="" />
+            <p>Javascript</p>
+          </span>
+          <span class="badge">
+            <img src="/assets/icons/React.svg" alt="" />
+            <p>React</p>
+          </span>
+          <span class="badge">
+            <img src="/assets/icons/Node.js.svg" alt="" />
+            <p>Node.js</p>
+          </span>
+        </div>
+      </div>
+      <a href="#projects"
+        ><span><img src="/assets/icons/CaretDoubleDown.svg" alt="" /></span
+      ></a>
+    </section>
+    <section id="projects" class="container flex flex-column">
+      <header class="flex flex-column">
+        <p><span class="subtitle text-red">Projects</span></p>
+        <h3>See highlighted projects</h3>
+      </header>
+      <div class="grid gap-24">
+        <div class="card">
+          <img src="assets/Thumbnail_Project-01.png" alt="" />
+          <div>
+            <h3>Travelgram</h3>
+            <p>
+              Rede social onde as pessoas mostram os registros de suas viagens
+              pelo mundo
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="assets/Thumbnail_Project-02.png" alt="" />
+          <div>
+            <h3>Tech News</h3>
+            <p>Homepage de um portal de notícias sobre a área de tecnologia</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="assets/Thumbnail_Project-03.png" alt="" />
+          <div>
+            <h3>Página de receita</h3>
+            <p>Página com o passo a passo de uma receita para cupcakes</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="assets/Thumbnail_Project-04.png" alt="" />
+          <div class="in-progress">
+            <h3>Zingen</h3>
+            <p>
+              Landing Page completa e responsiva de um aplicativo de Karaokê
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="assets/Thumbnail_Project-05.png" alt="" />
+          <div class="flex flex-column in-progress">
+            <h3>Refund</h3>
+            <p>Um sistema para pedido e acompanhamento de reembolso</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="assets/Thumbnail_Project-06.png" alt="" />
+          <div>
+            <h3>Página de turismo</h3>
+            <p>
+              Página com as principais informações para quem quer viajar para
+              Busan
+            </p>
           </div>
         </div>
       </div>
-      <img src="/assets/icons/CaretDoubleDown.svg" alt="" />
     </section>
   </body>
 </html>

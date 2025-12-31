@@ -1,15 +1,28 @@
 #intro {
-  background: center/cover url("../assets/Background_Intro.png");
+  height: 750px;
+  background: no-repeat top/100% url("../assets/Background_Intro.png");
+  row-gap: 94px;
 
   & > div {
-    width: 1040px;
-    height: 447px;
-    margin: auto;
+    margin-top: auto;
+    row-gap: 80px;
+    align-items: center;
 
     & > header {
-      margin-inline: auto;
       row-gap: 56px;
       align-items: center;
+    }
+  }
+
+  & > a {
+    align-self: center;
+    margin-bottom: 57px;
+    width: 32px;
+    height: 32px;
+
+    & > span > img {
+      object-fit: cover;
+      width: 100%;
     }
   }
 }
@@ -17,9 +30,9 @@
 #avatar {
   position: relative;
 
-  & > img {
+  img {
     border: 2px solid var(--red);
-    width: 87.27px;
+    width: 150px;
     object-fit: cover;
     border-radius: 50%;
     padding: 4.36px;
@@ -28,8 +41,44 @@
   span {
     position: absolute;
     padding: 20px;
-    background: no-repeat center/32px url(/assets/icons/Code.svg);
-    right: -12%;
-    bottom: 0%;
+    background: no-repeat center url(/assets/icons/Code.svg);
+    right: 0.5%;
+    bottom: 2%;
+  }
+}
+
+#about {
+  text-align: center;
+  row-gap: 20px;
+  width: 680px;
+
+  section:first-child {
+    p {
+      font: var(--subtitle);
+      margin-bottom: 8px;
+    }
+
+    p::after {
+      content: " João Santos";
+      color: var(--red);
+    }
+
+    h1 {
+      font: var(--title-lg);
+      color: var(--gray-100);
+    }
+  }
+
+  p:last-child {
+    font: var(--text-sm);
+    color: var(--gray-300);
+  }
+}
+
+#tags {
+  column-gap: 16px;
+
+  img {
+    width: 24px;
   }
 }
