@@ -43,4 +43,6 @@ body {
   color: var(--gray-100);
 
   min-width: 1366px;
+
+  background: repeat center/900% url(../assets/Background_Intro.png);
 }

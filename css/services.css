@@ -9,6 +9,8 @@
     grid-template-columns: repeat(3, 280px);
 
     & > div {
+      border: 2px var(--gray-500) solid;
+      border-radius: 12px;
       & > img {
         width: 48px;
       }

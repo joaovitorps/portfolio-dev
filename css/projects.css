@@ -2,8 +2,6 @@
   row-gap: 56px;
   position: relative;
 
-  background: repeat center/900% url(../assets/Background_Intro.png);
-
   padding-block: 72px 144px;
 
   & > div {
