@@ -1,20 +1,12 @@
 #projects {
   row-gap: 56px;
-  text-align: center;
   position: relative;
 
   background: repeat center/900% url(../assets/Background_Intro.png);
 
-  padding-top: 72px;
-  padding-bottom: 144px;
-
-  & > header > p {
-    font: optional;
-  }
+  padding-block: 72px 144px;
 
   & > div {
-    width: 1040px;
-
     margin-inline: auto;
 
     grid-template-columns: repeat(3, 1fr);

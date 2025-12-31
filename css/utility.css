@@ -40,12 +40,26 @@
   font: var(--subtitle);
 }
 
+.title-sm {
+  font: var(--title-sm);
+  color: var(--gray-100);
+}
+
+.text-sm {
+  font: var(--text-sm);
+  color: var(--gray-200);
+}
+
 .grid {
   display: grid;
 }
 
 .gap-24 {
   gap: 24px;
+}
+
+.row-gap-56 {
+  row-gap: 56px;
 }
 
 .card {
@@ -77,14 +91,7 @@
     row-gap: 8px;
 
     & > h3 {
-      font: var(--title-sm);
-      color: var(--gray-100);
       flex-basis: 27.59px;
-    }
-
-    & > p {
-      font: var(--text-sm);
-      color: var(--gray-200);
     }
   }
 
@@ -100,4 +107,9 @@
     padding: 4px 8px;
     border-radius: 8px;
   }
+}
+
+section:has(header .subtitle) header {
+  row-gap: 8px;
+  text-align: center;
 }

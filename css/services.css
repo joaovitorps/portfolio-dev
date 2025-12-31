@@ -1,0 +1,17 @@
+#services {
+  background-color: var(--gray-600);
+
+  padding-block: 88px 120px;
+
+  & > div {
+    justify-content: center;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 280px);
+
+    & > div {
+      & > img {
+        width: 48px;
+      }
+    }
+  }
+}
