@@ -101,6 +101,21 @@
   padding-inline: 12px;
   padding-block: 12px 17px;
 
+  position: relative;
+
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+
+  &:hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+  }
+
   & > img {
     object-fit: cover;
 
@@ -157,5 +172,11 @@ section:has(header .subtitle) header {
 
   & > img:last-child {
     width: 20px;
+  }
+
+  &:hover {
+    border: 1.5px solid var(--blue);
+    transform: scale(1.05);
+    cursor: pointer;
   }
 }
