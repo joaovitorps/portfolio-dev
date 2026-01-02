@@ -4,6 +4,25 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  background: var(--gray-500);
+  max-width: 0.5vw;
+  max-height: 1vh;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--purple);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--gray-500);
+}
+
 :root {
   /* Main colors */
   --red: #e3646e;
@@ -45,4 +64,10 @@ body {
   min-width: 1366px;
 
   background: repeat center/900% url(../assets/Background_Intro.png);
+}
+
+h1,
+h3,
+p {
+  cursor: text;
 }
