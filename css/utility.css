@@ -173,10 +173,11 @@ section:has(header .subtitle) header {
   background-color: var(--gray-400);
   padding: 20px;
   border-radius: 8px;
+  width: 400px;
 
   align-items: center;
 
-  width: 400px;
+  position: relative;
 
   & > p {
     flex-grow: 1;
@@ -187,8 +188,16 @@ section:has(header .subtitle) header {
   }
 
   &:hover {
+    :after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 1px;
+    }
+
     border: 1.5px solid var(--blue);
     transform: scale(1.05);
-    cursor: pointer;
   }
 }
