@@ -71,3 +71,7 @@ h3,
 p {
   cursor: text;
 }
+
+a {
+  text-decoration: none;
+}

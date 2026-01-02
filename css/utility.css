@@ -109,6 +109,7 @@
     transform: scale(1.07);
   }
 
+  /* trick to make a full card invisible square for cursor pointer */
   &:hover::after {
     content: "";
     position: absolute;
