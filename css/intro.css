@@ -76,7 +76,11 @@
 }
 
 #tags {
-  column-gap: 16px;
+  gap: 16px;
+  width: 680px;
+  flex-wrap: wrap;
+
+  justify-content: center;
 
   img {
     width: 24px;
