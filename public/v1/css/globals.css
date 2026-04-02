@@ -41,16 +41,16 @@
 
   /* Typography */
   --font-family-asap: "Asap", sans-serif;
-  --title-lg: 700 56px/120% var(--font-family-asap);
-  --title-md: 700 24px/120% var(--font-family-asap);
-  --title-sm: 700 16px/120% var(--font-family-asap);
+  --title-lg: 700 56px / 120% var(--font-family-asap);
+  --title-md: 700 24px / 120% var(--font-family-asap);
+  --title-sm: 700 16px / 120% var(--font-family-asap);
 
   --font-family-inconsolata: "Inconsolata", monospace;
-  --subtitle: 20px/120% var(--font-family-inconsolata);
+  --subtitle: 20px / 120% var(--font-family-inconsolata);
 
   --font-family-maven-pro: "Maven Pro", sans-serif;
-  --text-md: 16px/140% var(--font-family-maven-pro);
-  --text-sm: 14px/140% var(--font-family-maven-pro);
+  --text-md: 16px / 140% var(--font-family-maven-pro);
+  --text-sm: 14px / 140% var(--font-family-maven-pro);
 }
 
 html {
@@ -63,7 +63,7 @@ body {
 
   min-width: 1366px;
 
-  background: repeat center/900% url(../assets/Background_Intro.png);
+  background: repeat center / 900% url(../assets/Background_Intro.png);
 }
 
 h1,

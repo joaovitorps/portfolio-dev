@@ -1,6 +1,6 @@
 #intro {
   height: 100vh;
-  background: no-repeat top/100% url("../assets/Background_Intro.png");
+  background: no-repeat top / 100% url("../assets/Background_Intro.png");
   row-gap: 94px;
 
   & > div {
@@ -41,7 +41,7 @@
   span {
     position: absolute;
     padding: 20px;
-    background: no-repeat center url(/assets/icons/Code.svg);
+    background: no-repeat center url(../assets/icons/Code.svg);
     right: 0.5%;
     bottom: 2%;
   }

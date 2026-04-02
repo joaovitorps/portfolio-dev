@@ -3,7 +3,7 @@
 
   padding-top: 128px;
 
-  background: no-repeat center/cover url(../assets/Background_Contacts.png);
+  background: no-repeat center / cover url(../assets/Background_Contacts.png);
 
   & > div {
     margin-inline: auto;
