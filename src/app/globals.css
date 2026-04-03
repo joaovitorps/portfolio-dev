@@ -28,6 +28,31 @@
   html {
     @apply font-sans;
   }
+
+  /* Transparent scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted-foreground);
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-color: var(--border) transparent;
+    scrollbar-width: thin;
+  }
 }
 
 @theme inline {
@@ -49,59 +74,49 @@
 
   /* Border Radius Tokens */
   --radius-sm: calc(var(--radius) * 0.6);
-
-  /* Portfolio-Specific Colors */
-  --color-portfolio-primary: #ffffff;
-  --color-portfolio-secondary: #4b41e1;
 }
 
-@light {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.457 0.24 277.023);
-  --primary-foreground: oklch(0.962 0.018 272.314);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+:root {
+  --background: #ebf3f0;
+  --foreground: #0d3d36;
+  --card: #f8fffe;
+  --card-foreground: #0d3d36;
+  --primary: #0d5c47;
+  --primary-foreground: #f8fffe;
+  --secondary: #ff6b35;
+  --secondary-foreground: #f8fffe;
+  --muted: #e0f2ed;
+  --muted-foreground: #0d5c47;
+  --destructive: #e11d48;
+  --border: #c8e0db;
+  --input: #e0f2ed;
+  --ring: #408a71;
   --radius: 0.625rem;
+  --portfolio-primary: #f8fffe;
+  --portfolio-secondary: #ff6b35;
 }
 
-@dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.398 0.195 277.366);
-  --primary-foreground: oklch(0.962 0.018 272.314);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+.dark {
+  --background: #000000;
+  --foreground: #e8f4f1;
+  --card: #091413;
+  --card-foreground: #e8f4f1;
+  --primary: #408a71;
+  --primary-foreground: #091413;
+  --secondary: #ff6b35;
+  --secondary-foreground: #091413;
+  --muted: #285a48;
+  --muted-foreground: #7fa99f;
+  --destructive: #e11d48;
+  --border: #1f4037;
+  --input: #1f4037;
+  --ring: #b0e4cc;
+  --radius: 0.625rem;
+  --portfolio-primary: #000000;
+  --portfolio-secondary: #ff6b35;
 }
 
 @layer components {
-  /* Portfolio Design System Colors */
-  @light {
-    --portfolio-primary: #ffffff;
-    --portfolio-secondary: #4b41e1;
-  }
-
-  @dark {
-    --portfolio-primary: #000000;
-    --portfolio-secondary: #585bff;
-  }
-
   /* Custom color utilities for portfolio */
   .text-portfolio-primary {
     color: var(--portfolio-primary);
@@ -252,6 +267,7 @@
     border: 2px solid var(--portfolio-secondary);
     background-color: var(--background);
     flex-shrink: 0;
+    margin-top: 0.3125rem;
   }
 
   .timeline-line {
