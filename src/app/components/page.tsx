@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { RiCheckLine } from "react-icons/ri";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent, CardHeader } from "@/components/ui/Card";
@@ -16,39 +16,8 @@ type ButtonVariant =
   | "destructive"
   | "link";
 type ButtonSize = "sm" | "md" | "lg" | "icon" | "icon-sm" | "icon-lg";
-type ButtonDisplayMode = "text" | "icon" | "both";
-
-function ControlButton({
-  isActive,
-  onClick,
-  children,
-}: {
-  isActive: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <Button
-      onClick={onClick}
-      variant={isActive ? "default" : "outline"}
-      size="sm"
-    >
-      {children}
-    </Button>
-  );
-}
 
 export default function ComponentsPage() {
-  const [badgeVariant, setBadgeVariant] = useState<BadgeVariant>("default");
-  const [badgeSize, setBadgeSize] = useState<BadgeSize>("md");
-  const [badgeWithIcon, setBadgeWithIcon] = useState(false);
-
-  const [buttonVariant, setButtonVariant] = useState<ButtonVariant>("default");
-  const [buttonSize, setButtonSize] = useState<ButtonSize>("md");
-  const [buttonDisplayMode, setButtonDisplayMode] =
-    useState<ButtonDisplayMode>("both");
-  const [buttonDisabled, setButtonDisabled] = useState(false);
-
   const badgeVariants: BadgeVariant[] = [
     "default",
     "secondary",
@@ -72,23 +41,6 @@ export default function ComponentsPage() {
     "icon-sm",
     "icon-lg",
   ];
-  const buttonDisplayModes: ButtonDisplayMode[] = ["text", "icon", "both"];
-
-  const getButtonContent = () => {
-    switch (buttonDisplayMode) {
-      case "text":
-        return "Click me";
-      case "icon":
-        return <RiCheckLine size={20} />;
-      case "both":
-        return (
-          <>
-            <RiCheckLine size={20} />
-            Click me
-          </>
-        );
-    }
-  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -103,68 +55,29 @@ export default function ComponentsPage() {
           <CardHeader title="Badge Component" subtitle="Variants & Sizes" />
           <CardContent>
             <div className="space-y-6">
-              {/* Badge Variant Selector */}
-              <div>
-                <p className="block text-sm font-medium mb-3">Variant</p>
-                <div className="flex flex-wrap gap-2">
-                  {badgeVariants.map((variant) => (
-                    <ControlButton
-                      key={variant}
-                      isActive={badgeVariant === variant}
-                      onClick={() => setBadgeVariant(variant)}
-                    >
-                      {variant}
-                    </ControlButton>
-                  ))}
+              {badgeVariants.map((variant) => (
+                <div key={variant}>
+                  <p className="text-sm text-muted-foreground mb-3 capitalize font-medium">
+                    {variant} variant:
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {badgeSizes.map((size) => (
+                      <div key={`${variant}-${size}`} className="flex gap-2">
+                        <Badge variant={variant} size={size}>
+                          {size}
+                        </Badge>
+                        <Badge
+                          variant={variant}
+                          size={size}
+                          icon={<RiCheckLine size={14} />}
+                        >
+                          {size}
+                        </Badge>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-
-              {/* Badge Size Selector */}
-              <div>
-                <p className="block text-sm font-medium mb-3">Size</p>
-                <div className="flex flex-wrap gap-2">
-                  {badgeSizes.map((size) => (
-                    <ControlButton
-                      key={size}
-                      isActive={badgeSize === size}
-                      onClick={() => setBadgeSize(size)}
-                    >
-                      {size}
-                    </ControlButton>
-                  ))}
-                </div>
-              </div>
-
-              {/* Badge Icon Toggle */}
-              <div>
-                <label
-                  htmlFor="badge-icon"
-                  className="flex items-center gap-2 cursor-pointer"
-                >
-                  <input
-                    id="badge-icon"
-                    type="checkbox"
-                    checked={badgeWithIcon}
-                    onChange={(e) => setBadgeWithIcon(e.target.checked)}
-                    className="w-4 h-4"
-                  />
-                  <span className="text-sm font-medium">Show with icon</span>
-                </label>
-              </div>
-
-              {/* Badge Preview */}
-              <div className="border-t border-border pt-6">
-                <p className="text-sm text-muted-foreground mb-4">Preview:</p>
-                <div className="flex flex-wrap gap-4">
-                  <Badge
-                    variant={badgeVariant}
-                    size={badgeSize}
-                    icon={badgeWithIcon ? <RiCheckLine size={16} /> : undefined}
-                  >
-                    {badgeWithIcon ? "Verified" : "Badge"}
-                  </Badge>
-                </div>
-              </div>
+              ))}
             </div>
           </CardContent>
         </Card>
@@ -174,84 +87,30 @@ export default function ComponentsPage() {
           <CardHeader title="Button Component" subtitle="Variants & Sizes" />
           <CardContent>
             <div className="space-y-6">
-              {/* Button Variant Selector */}
-              <div>
-                <p className="block text-sm font-medium mb-3">Variant</p>
-                <div className="flex flex-wrap gap-2">
-                  {buttonVariants.map((variant) => (
-                    <ControlButton
-                      key={variant}
-                      isActive={buttonVariant === variant}
-                      onClick={() => setButtonVariant(variant)}
-                    >
-                      {variant}
-                    </ControlButton>
-                  ))}
+              {buttonVariants.map((variant) => (
+                <div key={variant}>
+                  <p className="text-sm text-muted-foreground mb-3 capitalize font-medium">
+                    {variant} variant:
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {buttonSizes.map((size) => (
+                      <Button
+                        key={`${variant}-${size}`}
+                        variant={variant}
+                        size={size}
+                      >
+                        {size === "icon" ||
+                        size === "icon-sm" ||
+                        size === "icon-lg" ? (
+                          <RiCheckLine size={20} />
+                        ) : (
+                          size
+                        )}
+                      </Button>
+                    ))}
+                  </div>
                 </div>
-              </div>
-
-              {/* Button Size Selector */}
-              <div>
-                <p className="block text-sm font-medium mb-3">Size</p>
-                <div className="flex flex-wrap gap-2">
-                  {buttonSizes.map((size) => (
-                    <ControlButton
-                      key={size}
-                      isActive={buttonSize === size}
-                      onClick={() => setButtonSize(size)}
-                    >
-                      {size}
-                    </ControlButton>
-                  ))}
-                </div>
-              </div>
-
-              {/* Button Display Mode Selector */}
-              <div>
-                <p className="block text-sm font-medium mb-3">Content</p>
-                <div className="flex flex-wrap gap-2">
-                  {buttonDisplayModes.map((mode) => (
-                    <ControlButton
-                      key={mode}
-                      isActive={buttonDisplayMode === mode}
-                      onClick={() => setButtonDisplayMode(mode)}
-                    >
-                      {mode}
-                    </ControlButton>
-                  ))}
-                </div>
-              </div>
-
-              {/* Button Disabled Toggle */}
-              <div>
-                <label
-                  htmlFor="button-disabled"
-                  className="flex items-center gap-2 cursor-pointer"
-                >
-                  <input
-                    id="button-disabled"
-                    type="checkbox"
-                    checked={buttonDisabled}
-                    onChange={(e) => setButtonDisabled(e.target.checked)}
-                    className="w-4 h-4"
-                  />
-                  <span className="text-sm font-medium">Disabled state</span>
-                </label>
-              </div>
-
-              {/* Button Preview */}
-              <div className="border-t border-border pt-6">
-                <p className="text-sm text-muted-foreground mb-4">Preview:</p>
-                <div className="flex flex-wrap gap-4">
-                  <Button
-                    variant={buttonVariant}
-                    size={buttonSize}
-                    disabled={buttonDisabled}
-                  >
-                    {getButtonContent()}
-                  </Button>
-                </div>
-              </div>
+              ))}
             </div>
           </CardContent>
         </Card>
@@ -330,37 +189,22 @@ export default function ComponentsPage() {
           </CardContent>
         </Card>
 
-        {/* All Variants Grid */}
-        <Card>
-          <CardHeader
-            title="All Badge Variants"
-            subtitle="Complete Reference"
-          />
+        {/* ThemeToggle Component Section */}
+        <Card className="mb-8">
+          <CardHeader title="ThemeToggle Component" subtitle="Theme Switcher" />
           <CardContent>
-            <div className="space-y-6">
-              {badgeVariants.map((variant) => (
-                <div key={variant}>
-                  <p className="text-sm text-muted-foreground mb-2 capitalize">
-                    {variant} variant:
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    {badgeSizes.map((size) => (
-                      <div key={size} className="flex gap-2">
-                        <Badge variant={variant as BadgeVariant} size={size}>
-                          {size}
-                        </Badge>
-                        <Badge
-                          variant={variant as BadgeVariant}
-                          size={size}
-                          icon={<RiCheckLine size={14} />}
-                        >
-                          {size}
-                        </Badge>
-                      </div>
-                    ))}
-                  </div>
+            <div className="space-y-4">
+              <p className="text-sm text-muted-foreground mb-4">
+                Click the button below to toggle between light and dark themes:
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 border border-border rounded-md flex items-center justify-center">
+                  <ThemeToggle />
                 </div>
-              ))}
+                <p className="text-sm text-muted-foreground">
+                  Theme Toggle Button
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>
