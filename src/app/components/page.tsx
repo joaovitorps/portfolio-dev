@@ -5,7 +5,6 @@ import { RiCheckLine } from "react-icons/ri";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent, CardHeader } from "@/components/ui/Card";
-import { cn } from "@/lib/utils";
 
 type BadgeVariant = "default" | "secondary" | "muted" | "destructive";
 type BadgeSize = "sm" | "md" | "lg";
@@ -29,18 +28,13 @@ function ControlButton({
   children: React.ReactNode;
 }) {
   return (
-    <button
+    <Button
       onClick={onClick}
-      type="button"
-      className={cn(
-        "px-3 py-1 rounded text-sm font-medium transition-colors",
-        isActive
-          ? "bg-primary text-primary-foreground"
-          : "bg-muted text-foreground hover:bg-muted/80",
-      )}
+      variant={isActive ? "default" : "outline"}
+      size="sm"
     >
       {children}
-    </button>
+    </Button>
   );
 }
 

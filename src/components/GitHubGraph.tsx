@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { getColorClassForLevel, getTooltipText } from "@/lib/github-utils";
 import type { ContributionDay, GitHubGraphProps } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 export const GitHubGraph = ({
   data,
@@ -106,11 +107,11 @@ export const GitHubGraph = ({
                     <button
                       key={day.date}
                       type="button"
-                      className={`
-                        github-graph__cell
-                        ${colorClass}
-                        ${isHovered ? "ring-2 ring-portfolio-secondary" : ""}
-                      `}
+                      className={cn([
+                        "github-graph__cell",
+                        colorClass,
+                        isHovered && "ring-2 ring-portfolio-secondary",
+                      ])}
                       onMouseMove={(e) => handleMouseMove(e, day)}
                       onMouseLeave={handleMouseLeave}
                       aria-label={getTooltipText(day)}

@@ -34,16 +34,25 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ];
 
     const variantStyles = {
-      default: ["bg-primary text-primary-foreground hover:bg-primary/80"],
+      default: ["bg-primary", "text-primary-foreground", "hover:bg-primary/80"],
       secondary: [
-        "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        "bg-secondary",
+        "text-secondary-foreground",
+        "hover:bg-secondary/80",
       ],
-      outline: ["border border-input bg-background hover:bg-muted"],
+      outline: ["border", "border-input", "bg-background", "hover:bg-muted"],
       ghost: ["hover:bg-muted"],
       destructive: [
-        "bg-destructive text-destructive-foreground hover:bg-destructive/80",
+        "bg-destructive",
+        "text-destructive-foreground",
+        "hover:bg-destructive/80",
       ],
-      link: ["text-primary underline underline-offset-4 hover:text-primary/80"],
+      link: [
+        "text-primary",
+        "underline",
+        "underline-offset-4",
+        "hover:text-primary/80",
+      ],
     };
 
     const sizeStyles = {

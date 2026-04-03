@@ -33,11 +33,20 @@ export const ThemeToggle = ({ className = "" }: ThemeToggleProps) => {
       type="button"
       onClick={handleToggle}
       className={cn(
-        "inline-flex items-center justify-center",
-        "w-10 h-10 rounded-md",
-        "bg-muted hover:bg-muted/80",
-        "text-foreground transition-colors duration-200",
-        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+        "inline-flex",
+        "items-center",
+        "justify-center",
+        "w-10",
+        "h-10",
+        "rounded-md",
+        "bg-muted",
+        "hover:bg-muted/80",
+        "text-foreground",
+        "transition-colors",
+        "duration-200",
+        "focus-visible:outline-2",
+        "focus-visible:outline-offset-2",
+        "focus-visible:outline-primary",
         className,
       )}
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}

@@ -22,16 +22,16 @@ export const Badge = ({
   ];
 
   const variantStyles = {
-    default: ["bg-primary text-primary-foreground"],
-    secondary: ["bg-secondary text-secondary-foreground"],
-    muted: ["bg-muted text-foreground"],
-    destructive: ["bg-destructive text-destructive-foreground"],
+    default: ["bg-primary", "text-primary-foreground"],
+    secondary: ["bg-secondary", "text-secondary-foreground"],
+    muted: ["bg-muted", "text-foreground"],
+    destructive: ["bg-destructive", "text-destructive-foreground"],
   };
 
   const sizeStyles = {
-    sm: ["px-2 py-0.5", "text-xs"],
-    md: ["px-2.5 py-1", "text-sm"],
-    lg: ["px-3 py-1.5", "text-base"],
+    sm: ["px-2", "py-0.5", "text-xs"],
+    md: ["px-2.5", "py-1", "text-sm"],
+    lg: ["px-3", "py-1.5", "text-base"],
   };
 
   return (

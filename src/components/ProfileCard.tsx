@@ -60,12 +60,20 @@ export const ProfileCard = ({ profile }: ProfileCardProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn([
-                  "flex items-center gap-2 px-3 py-2",
+                  "flex",
+                  "items-center",
+                  "gap-2",
+                  "px-3",
+                  "py-2",
                   "rounded-md",
-                  "bg-muted/50 hover:bg-muted",
-                  "text-foreground hover:text-portfolio-secondary",
-                  "transition-colors duration-200",
-                  "text-sm font-medium",
+                  "bg-muted/50",
+                  "hover:bg-muted",
+                  "text-foreground",
+                  "hover:text-portfolio-secondary",
+                  "transition-colors",
+                  "duration-200",
+                  "text-sm",
+                  "font-medium",
                 ])}
                 title={`Visit ${link.label}`}
               >

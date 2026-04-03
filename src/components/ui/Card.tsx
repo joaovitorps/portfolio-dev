@@ -14,7 +14,12 @@ interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
 export const Card = ({ className, children, ...props }: CardProps) => (
   <div
     className={cn(
-      "bg-card border border-border rounded-lg p-6 transition-all",
+      "bg-card",
+      "border",
+      "border-border",
+      "rounded-lg",
+      "p-6",
+      "transition-all",
       className,
     )}
     {...props}

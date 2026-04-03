@@ -13,3 +13,7 @@ Always run npm commands with -E or --save-exact
 # General rules
 
 Do not create folders outside the project dir, run pwd for current folder reference
+
+# Commit
+
+use conventional commit pattern
