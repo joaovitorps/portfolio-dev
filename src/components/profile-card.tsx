@@ -5,9 +5,9 @@ import { RiGithubLine, RiLinkedinLine, RiMailLine } from "react-icons/ri";
 import { githubContributionsMock } from "@/data/github-mock";
 import type { ProfileCardProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { GitHubGraph } from "./GitHubGraph";
-import { ThemeToggle } from "./ThemeToggle";
-import { Card } from "./ui/Card";
+import { GitHubGraph } from "./github-graph";
+import { ThemeToggle } from "./theme-toggle";
+import { Card } from "./ui/card";
 
 // Icon mapping for social platforms
 const socialIconMap: Record<string, React.ReactNode> = {

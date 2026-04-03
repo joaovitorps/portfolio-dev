@@ -3,8 +3,8 @@
 import { RiExternalLinkLine, RiGithubLine } from "react-icons/ri";
 import type { ProjectsCardProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Badge } from "./ui/Badge";
-import { Card, CardContent, CardHeader } from "./ui/Card";
+import { Badge } from "./ui/badge";
+import { Card, CardContent, CardHeader } from "./ui/card";
 
 export const ProjectsCard = ({ projects }: ProjectsCardProps) => {
   return (

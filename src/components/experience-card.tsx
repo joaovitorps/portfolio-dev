@@ -1,8 +1,8 @@
 "use client";
 
 import type { ExperienceCardProps } from "@/lib/types";
-import { Badge } from "./ui/Badge";
-import { Card, CardContent, CardHeader } from "./ui/Card";
+import { Badge } from "./ui/badge";
+import { Card, CardContent, CardHeader } from "./ui/card";
 
 export const ExperienceCard = ({ experiences }: ExperienceCardProps) => {
   return (

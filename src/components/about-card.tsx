@@ -1,7 +1,7 @@
 "use client";
 
 import type { AboutCardProps } from "@/lib/types";
-import { Card, CardContent, CardHeader } from "./ui/Card";
+import { Card, CardContent, CardHeader } from "./ui/card";
 
 export const AboutCard = ({ content }: AboutCardProps) => {
   return (

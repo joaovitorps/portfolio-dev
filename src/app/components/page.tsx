@@ -1,10 +1,10 @@
 "use client";
 
 import { RiCheckLine } from "react-icons/ri";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { Card, CardContent, CardHeader } from "@/components/ui/Card";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 type BadgeVariant = "default" | "secondary" | "muted" | "destructive";
 type BadgeSize = "sm" | "md" | "lg";

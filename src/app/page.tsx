@@ -1,10 +1,10 @@
 "use client";
 
-import { AboutCard } from "@/components/AboutCard";
-import { ExperienceCard } from "@/components/ExperienceCard";
-import { ProfileCard } from "@/components/ProfileCard";
-import { ProjectsCard } from "@/components/ProjectsCard";
-import { TechnologiesCard } from "@/components/TechnologiesCard";
+import { AboutCard } from "@/components/about-card";
+import { ExperienceCard } from "@/components/experience-card";
+import { ProfileCard } from "@/components/profile-card";
+import { ProjectsCard } from "@/components/projects-card";
+import { TechnologiesCard } from "@/components/technologies-card";
 import portfolioDataRaw from "@/data/portfolio.json";
 import type { PortfolioData } from "@/lib/types";
 
