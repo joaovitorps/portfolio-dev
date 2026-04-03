@@ -4,6 +4,7 @@ import { RiCheckLine } from "react-icons/ri";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button-link";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 type BadgeVariant = "default" | "secondary" | "muted" | "destructive";
@@ -15,6 +16,14 @@ type ButtonVariant =
   | "ghost"
   | "destructive"
   | "link";
+type ButtonLinkVariant =
+  | "default"
+  | "secondary"
+  | "outline"
+  | "ghost"
+  | "destructive"
+  | "link"
+  | "transparent";
 type ButtonSize = "sm" | "md" | "lg" | "icon" | "icon-sm" | "icon-lg";
 
 export default function ComponentsPage() {
@@ -32,6 +41,15 @@ export default function ComponentsPage() {
     "ghost",
     "destructive",
     "link",
+  ];
+  const buttonLinkVariants: ButtonLinkVariant[] = [
+    "default",
+    "secondary",
+    "outline",
+    "ghost",
+    "destructive",
+    "link",
+    "transparent",
   ];
   const buttonSizes: ButtonSize[] = [
     "sm",
@@ -107,6 +125,43 @@ export default function ComponentsPage() {
                           size
                         )}
                       </Button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* ButtonLink Component Section */}
+        <Card className="mb-8">
+          <CardHeader
+            title="ButtonLink Component"
+            subtitle="Variants & Sizes"
+          />
+          <CardContent>
+            <div className="space-y-6">
+              {buttonLinkVariants.map((variant) => (
+                <div key={variant}>
+                  <p className="text-sm text-muted-foreground mb-3 capitalize font-medium">
+                    {variant} variant:
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {buttonSizes.map((size) => (
+                      <ButtonLink
+                        key={`${variant}-${size}`}
+                        variant={variant}
+                        size={size}
+                        href="#"
+                      >
+                        {size === "icon" ||
+                        size === "icon-sm" ||
+                        size === "icon-lg" ? (
+                          <RiCheckLine size={20} />
+                        ) : (
+                          size
+                        )}
+                      </ButtonLink>
                     ))}
                   </div>
                 </div>
