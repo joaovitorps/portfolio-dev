@@ -7,6 +7,7 @@ import type { ProfileCardProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { GitHubGraph } from "./GitHubGraph";
 import { ThemeToggle } from "./ThemeToggle";
+import { Card } from "./ui/Card";
 
 // Icon mapping for social platforms
 const socialIconMap: Record<string, React.ReactNode> = {
@@ -18,7 +19,7 @@ const socialIconMap: Record<string, React.ReactNode> = {
 export const ProfileCard = ({ profile }: ProfileCardProps) => {
   return (
     <div className="sticky top-6 h-fit">
-      <div className="portfolio-card">
+      <Card>
         {/* Profile Header */}
         <div className="flex items-start justify-between mb-6">
           <div className="flex-1">
@@ -58,14 +59,14 @@ export const ProfileCard = ({ profile }: ProfileCardProps) => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
+                className={cn([
                   "flex items-center gap-2 px-3 py-2",
                   "rounded-md",
                   "bg-muted/50 hover:bg-muted",
                   "text-foreground hover:text-portfolio-secondary",
                   "transition-colors duration-200",
                   "text-sm font-medium",
-                )}
+                ])}
                 title={`Visit ${link.label}`}
               >
                 {socialIconMap[link.platform]}
@@ -86,7 +87,7 @@ export const ProfileCard = ({ profile }: ProfileCardProps) => {
             showLegend
           />
         </div>
-      </div>
+      </Card>
     </div>
   );
 };
