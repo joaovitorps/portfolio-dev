@@ -15,7 +15,7 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8 h-screen lg:h-auto">
         {/* Left Column: Profile Card (Full Height on Desktop, Stack on Mobile) */}
-        <div className="lg:sticky lg:top-8 h-fit">
+        <div className="lg:sticky lg:top-8 h-full lg:h-auto">
           <ProfileCard profile={portfolioData.profile} />
         </div>
 
