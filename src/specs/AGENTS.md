@@ -77,6 +77,13 @@ This document serves as a template for tracking and planning feature integration
 - **Priority**: High
 - **Design Reference**: Stitch - Portfolio Home (Bento Layout)
 
+### Feature: Mobile Tab Navigation
+- **Status**: Planning (Scheduled post-first deploy)
+- **Priority**: High
+- **Estimated Effort**: Medium (2-3 weeks)
+- **See**: `src/specs/mobile-tabs.md`
+- **Description**: Mobile-first tab navigation system for portfolio sections (About, Experience, Technologies, Projects) on devices < 768px
+
 ---
 
 ## Planned Features (Roadmap)
