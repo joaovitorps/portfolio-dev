@@ -1,0 +1,99 @@
+{
+  "profile": {
+    "name": "João Vitor",
+    "title": "Full-Stack Developer",
+    "bio": "Building elegant solutions with modern web technologies. Passionate about clean code, performance, and great user experiences.",
+    "email": "joao@example.com",
+    "links": [
+      {
+        "id": "github",
+        "platform": "github",
+        "url": "https://github.com/joaovitorps",
+        "label": "GitHub"
+      },
+      {
+        "id": "linkedin",
+        "platform": "linkedin",
+        "url": "https://linkedin.com/in/joaovitorps",
+        "label": "LinkedIn"
+      },
+      {
+        "id": "email",
+        "platform": "email",
+        "url": "mailto:joao@example.com",
+        "label": "Email"
+      }
+    ]
+  },
+  "about": "I'm a full-stack developer with a passion for creating beautiful, performant web applications. With expertise in React, TypeScript, and Node.js, I focus on building solutions that make a real impact. I believe in clean code, comprehensive testing, and continuous learning.",
+  "experience": [
+    {
+      "id": "exp-1",
+      "company": "Tech Company",
+      "role": "Senior Full-Stack Developer",
+      "period": "2023 - Present",
+      "startDate": "2023-01-01",
+      "description": "Led development of multiple full-stack applications using React and Node.js. Mentored junior developers and established coding standards for the team.",
+      "technologies": ["React", "Node.js", "TypeScript", "PostgreSQL", "AWS"]
+    },
+    {
+      "id": "exp-2",
+      "company": "StartUp Inc",
+      "role": "Full-Stack Developer",
+      "period": "2021 - 2023",
+      "startDate": "2021-06-01",
+      "endDate": "2023-01-01",
+      "description": "Built and maintained web applications for SaaS platform. Worked on features spanning frontend and backend systems.",
+      "technologies": ["React", "Express", "MongoDB", "Docker"]
+    },
+    {
+      "id": "exp-3",
+      "company": "Digital Agency",
+      "role": "Frontend Developer",
+      "period": "2019 - 2021",
+      "startDate": "2019-03-01",
+      "endDate": "2021-06-01",
+      "description": "Developed responsive web interfaces for various clients. Focused on performance optimization and accessibility standards.",
+      "technologies": ["React", "Vue.js", "Tailwind CSS", "GraphQL"]
+    }
+  ],
+  "technologies": [
+    "React",
+    "TypeScript",
+    "Next.js",
+    "Node.js",
+    "Express",
+    "PostgreSQL",
+    "MongoDB",
+    "Tailwind CSS",
+    "GraphQL",
+    "Docker",
+    "AWS",
+    "Git"
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "Portfolio V2",
+      "description": "Modern, minimalist developer portfolio with dark mode support and GitHub contribution graph integration.",
+      "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      "link": "https://portfolio.example.com",
+      "githubLink": "https://github.com/joaovitorps/portfolio"
+    },
+    {
+      "id": "proj-2",
+      "title": "Task Management App",
+      "description": "Full-stack task management application with real-time synchronization and collaboration features.",
+      "technologies": ["React", "Node.js", "PostgreSQL", "Socket.io"],
+      "githubLink": "https://github.com/joaovitorps/task-app"
+    },
+    {
+      "id": "proj-3",
+      "title": "Analytics Dashboard",
+      "description": "Data visualization dashboard with interactive charts and real-time updates for business metrics.",
+      "technologies": ["React", "D3.js", "Express", "MongoDB"],
+      "link": "https://analytics-demo.example.com",
+      "githubLink": "https://github.com/joaovitorps/analytics"
+    }
+  ]
+}
