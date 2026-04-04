@@ -75,6 +75,7 @@ Content is stored in `/src/data/portfolio.json`. This file is imported and used 
 ## Why This Matters
 
 AI needs to know:
+
 - **Portfolio data is centralized** in one JSON file
 - **String values are often converted** to components (descriptions → bullet lists)
 - **Arrays are iterated** to create UI (experience → experience cards, projects → project cards)
@@ -93,7 +94,7 @@ Light and dark mode are implemented using CSS variables and `next-themes` librar
 
 2. **Switching** happens via `next-themes` (manages localStorage and DOM class)
 
-3. **Components use variables** via Tailwind's `@apply` or inline `var(--color-name)`
+3. **Components use Tailwind classes** that map to theme variables via the `@theme inline` block in globals.css
 
 ## Why This Architecture
 
@@ -101,17 +102,6 @@ Light and dark mode are implemented using CSS variables and `next-themes` librar
 - **Easy to extend** - add new colors by defining new CSS variables
 - **No runtime overhead** - pure CSS, no state management needed
 - **Accessible** - respects user's OS preference initially, allows override
-
-## For AI: When Building Components
-
-Always use CSS variables for colors:
-```typescript
-// ✅ CORRECT - Uses theme variables
-className="bg-[var(--background)] text-[var(--foreground)]"
-
-// ❌ WRONG - Hardcoded colors
-className="bg-white text-black"
-```
 
 # NPM Commands
 
@@ -133,6 +123,7 @@ npm run format   # Format code with Biome
 # Commit Pattern
 
 Use conventional commit format:
+
 ```
 type(scope): description
 
@@ -142,3 +133,124 @@ docs(readme): update installation steps
 ```
 
 Types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, `style`, `perf`
+
+**Important**: Create atomic commits for each logical change. Don't combine multiple unrelated changes into a single commit. Each commit should be independently reviewable and have a clear, single purpose.
+
+---
+
+## Code Style Guideline: Conditional Early Return for Readability
+
+When writing conditionals that guard against invalid or missing data, prefer the early return pattern for better readability. For example, instead of:
+
+```js
+if (active && payload && payload.length) {
+  // ...
+}
+```
+
+Use:
+
+```js
+if (!active || !payload?.length) {
+  return null;
+}
+// ...rest of logic
+```
+
+This approach makes the intent clearer and reduces nesting.
+
+---
+
+## Comment Guidelines
+
+### When to Comment
+
+Only add comments that explain **WHY**, not **WHAT**. The code itself should be clear about WHAT it does.
+
+**Good comments:**
+- Explain non-obvious design decisions
+- Document workarounds and gotchas
+- Provide context about environment-specific behavior
+- Note performance considerations
+- Explain complex algorithms or Next.js patterns
+
+**Bad comments (remove these):**
+- Section labels like `/* Profile Header */` (obvious from JSX structure)
+- Restating what the code clearly does: `// Render chart` → the code already renders it
+- JSDoc for self-explanatory functions (function name + signature should be clear enough)
+- Explaining obvious variable assignments or operations
+
+### Examples
+
+**❌ REMOVE:**
+```typescript
+/* Profile Header */
+<div className="flex items-start...">
+  {/* This is a header */}
+  <h1>{name}</h1>
+</div>
+
+// Transform data for Recharts
+const chartData = data.map(...)
+
+// Toggle between light and dark
+const handleToggle = () => setTheme(!isDark)
+```
+
+**✅ KEEP:**
+```typescript
+// Prevent hydration mismatch by only rendering after mount
+useEffect(() => setMounted(true), []);
+
+// In production, use deployed domain; in dev, use localhost
+const baseUrl = process.env.VERCEL_URL 
+  ? `https://${process.env.VERCEL_URL}`
+  : "http://localhost:3000";
+```
+
+### JSDoc Usage
+
+Only use JSDoc for:
+- Public API functions that need documentation
+- Complex functions with non-obvious parameters
+- Exported utilities used across multiple files
+
+Skip JSDoc for:
+- Simple component functions (component name + props are clear)
+- Single-use internal utilities
+- Self-explanatory function signatures
+
+---
+
+## Current Implementations
+
+### GitHub Language Data Fetching
+
+**Architecture**: Build-time data fetching with static JSON storage
+
+**How it works**:
+- `/scripts/fetch-github-data.ts` runs during `npm run build` (via prebuild script)
+- Fetches language stats from GitHub API (~30 requests per build)
+- Saves aggregated data to `public/github-data.json` (~1.5KB)
+- Runtime component reads pre-built file (zero API calls, instant load)
+
+**Benefits**:
+- ✅ Eliminates API rate limiting issues
+- ✅ Fastest possible runtime performance
+- ✅ Works on serverless (Vercel)
+- ✅ Scalable (no quota consumed per user visit)
+
+**Trade-off**:
+- Data refreshes only when deployed (stale between deploys)
+
+**Future Enhancement**:
+- See `src/specs/github-actions-automation.md` for scheduled refresh workflow
+- This template can automatically update data weekly via GitHub Actions
+- Currently a reference/future implementation (not required for functionality)
+
+**Related files**:
+- `scripts/fetch-github-data.ts` - Fetch and aggregate logic
+- `src/lib/github.ts` - Runtime utilities (`generateLanguageSummary`)
+- `src/components/ui/language-chart.tsx` - Server component that reads the file
+- `README.md` - Learning section explaining the problem/solution
+
