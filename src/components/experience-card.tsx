@@ -1,5 +1,6 @@
 "use client";
 
+import { RiBriefcaseLine } from "react-icons/ri";
 import type { ExperienceCardProps } from "@/types";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader } from "./ui/card";
@@ -17,7 +18,7 @@ const parseDescription = (description: string): string[] => {
 export const ExperienceCard = ({ experiences }: ExperienceCardProps) => {
   return (
     <Card>
-      <CardHeader title="Experience" />
+      <CardHeader title="Experience" icon={<RiBriefcaseLine size={24} />} />
       <CardContent>
         <div className="timeline">
           {experiences.map((exp, idx) => (

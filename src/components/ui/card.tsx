@@ -7,6 +7,7 @@ interface CardHeaderProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -31,15 +32,17 @@ export const Card = ({ className, children, ...props }: CardProps) => (
 export const CardHeader = ({
   title,
   subtitle,
+  icon,
   className,
   children,
   ...props
 }: CardHeaderProps) => (
   <div className={cn("mb-4", className)} {...props}>
     {title && (
-      <h2 className="text-xl font-semibold text-card-foreground mb-1">
-        {title}
-      </h2>
+      <div className="flex items-center gap-2 mb-1">
+        {icon && <div className="text-3xl">{icon}</div>}
+        <h2 className="text-xl font-semibold text-card-foreground">{title}</h2>
+      </div>
     )}
     {subtitle && (
       <p className="text-sm text-muted-foreground uppercase tracking-wider">

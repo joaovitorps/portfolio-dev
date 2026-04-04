@@ -23,6 +23,12 @@
         "platform": "email",
         "url": "mailto:dev.joaosantos@outlook.com",
         "label": "Email"
+      },
+      {
+        "id": "hackerrank",
+        "platform": "hackerrank",
+        "url": "https://www.hackerrank.com/profile/joaovitorps",
+        "label": "HackerRank"
       }
     ]
   },

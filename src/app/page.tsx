@@ -22,14 +22,14 @@ export default function Home() {
           {/* About Card */}
           <AboutCard content={portfolioData.about} />
 
+          {/* Projects Card */}
+          <ProjectsCard projects={portfolioData.projects} />
+
           {/* Experience Card */}
           <ExperienceCard experiences={portfolioData.experience} />
 
           {/* Technologies Card */}
           <TechnologiesCard technologies={portfolioData.technologies} />
-
-          {/* Projects Card */}
-          <ProjectsCard projects={portfolioData.projects} />
         </div>
       </div>
     </main>

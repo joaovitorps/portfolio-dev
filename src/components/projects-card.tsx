@@ -1,6 +1,10 @@
 "use client";
 
-import { RiExternalLinkLine, RiGithubLine } from "react-icons/ri";
+import {
+  RiExternalLinkLine,
+  RiFolderOpenLine,
+  RiGithubLine,
+} from "react-icons/ri";
 import { cn } from "@/lib/utils";
 import type { ProjectsCardProps } from "@/types";
 import { Badge } from "./ui/badge";
@@ -9,7 +13,7 @@ import { Card, CardContent, CardHeader } from "./ui/card";
 export const ProjectsCard = ({ projects }: ProjectsCardProps) => {
   return (
     <Card>
-      <CardHeader title="Projects" />
+      <CardHeader title="Projects" icon={<RiFolderOpenLine size={24} />} />
       <CardContent>
         <div className="space-y-4">
           {projects.map((project) => (

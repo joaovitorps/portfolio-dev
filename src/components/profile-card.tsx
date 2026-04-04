@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Suspense } from "react";
-import { RiGithubLine, RiLinkedinLine, RiMailLine } from "react-icons/ri";
+import { RiDownloadLine, RiGithubLine, RiLinkedinLine } from "react-icons/ri";
+import { SiHackerrank } from "react-icons/si";
 import type { ProfileCardProps } from "@/types";
 import { ThemeToggle } from "./theme-toggle";
 import { ButtonLink } from "./ui/button-link";
@@ -12,7 +13,7 @@ import { LanguageChartSkeleton } from "./ui/language-chart-skeleton";
 const socialIconMap: Record<string, React.ReactNode> = {
   github: <RiGithubLine size={20} />,
   linkedin: <RiLinkedinLine size={20} />,
-  email: <RiMailLine size={20} />,
+  hackerrank: <SiHackerrank size={20} />,
 };
 
 export const ProfileCard = async ({ profile }: ProfileCardProps) => {
@@ -44,23 +45,43 @@ export const ProfileCard = async ({ profile }: ProfileCardProps) => {
       </p>
 
       <div className="mb-6 space-y-3">
-        <h2 className="portfolio-card-subtitle uppercase tracking-wider">
-          Links
-        </h2>
         <div className="flex gap-2">
-          {profile.links.map((link) => (
-            <ButtonLink
-              variant="transparent"
-              size="icon"
-              key={link.id}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={`Visit ${link.label}`}
-            >
-              {socialIconMap[link.platform]}
-            </ButtonLink>
-          ))}
+          {profile.links
+            .filter((link) => link.platform !== "email")
+            .map((link) => (
+              <ButtonLink
+                variant="transparent"
+                size="icon"
+                key={link.id}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`Visit ${link.label}`}
+              >
+                {socialIconMap[link.platform]}
+              </ButtonLink>
+            ))}
+        </div>
+        <div className="grid grid-cols-2 gap-2 pt-2">
+          <ButtonLink
+            href={`mailto:${profile.email}`}
+            variant="default"
+            size="sm"
+            className="w-full"
+          >
+            Email me
+          </ButtonLink>
+          <ButtonLink
+            href="https://github.com/joaovitorps/releases"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="default"
+            size="sm"
+            className="w-full flex items-center justify-center gap-2"
+          >
+            <RiDownloadLine size={16} />
+            Download CV
+          </ButtonLink>
         </div>
       </div>
 
