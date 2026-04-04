@@ -21,12 +21,15 @@
       "recommended": true,
       "correctness": "error",
       "performance": "error",
-      "security": {
-        "noSecrets": "off"
+      "security": "error",
+      "suspicious": {
+        "noConsole": {
+          "options": {
+            "allow": ["assert", "error", "info", "warn"]
+          }
+        }
       },
-      "suspicious": "error",
       "style": {
-        "noDefaultExport": "off",
         "noJsxLiterals": "off"
       }
     },
@@ -70,6 +73,26 @@
         "rules": {
           "suspicious": {
             "noUnknownAtRules": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/page.tsx", "**/layout.tsx"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/lib/**", "**/scripts/**"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noNodejsModules": "off"
           }
         }
       }

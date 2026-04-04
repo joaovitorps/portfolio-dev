@@ -43,3 +43,6 @@ next-env.d.ts
 # IDEs
 .idea
 .vscode
+
+# generated at build time
+/public/github-data.json

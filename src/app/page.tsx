@@ -1,12 +1,10 @@
-"use client";
-
 import { AboutCard } from "@/components/about-card";
 import { ExperienceCard } from "@/components/experience-card";
 import { ProfileCard } from "@/components/profile-card";
 import { ProjectsCard } from "@/components/projects-card";
 import { TechnologiesCard } from "@/components/technologies-card";
 import portfolioDataRaw from "@/data/portfolio.json";
-import type { PortfolioData } from "@/lib/types";
+import type { PortfolioData } from "@/types";
 
 const portfolioData = portfolioDataRaw as PortfolioData;
 
