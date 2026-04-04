@@ -1,12 +1,14 @@
+"use client";
+
 import Image from "next/image";
-import { Suspense } from "react";
 import { RiGithubLine, RiLinkedinLine, RiMailLine } from "react-icons/ri";
-import type { ProfileCardProps } from "@/types";
+import { generateLanguageSummary } from "@/lib/github";
+import type { LanguageData, ProfileData } from "@/types";
 import { ThemeToggle } from "./theme-toggle";
 import { ButtonLink } from "./ui/button-link";
 import { Card } from "./ui/card";
-import { LanguageChart } from "./ui/language-chart";
-import { LanguageChartSkeleton } from "./ui/language-chart-skeleton";
+
+// import { LanguageChart } from "./ui/language-chart";
 
 // Icon mapping for social platforms
 const socialIconMap: Record<string, React.ReactNode> = {
@@ -15,7 +17,15 @@ const socialIconMap: Record<string, React.ReactNode> = {
   email: <RiMailLine size={20} />,
 };
 
-export const ProfileCard = async ({ profile }: ProfileCardProps) => {
+interface ProfileCardClientProps {
+  profile: ProfileData;
+  languageData?: LanguageData[];
+}
+
+export const ProfileCardClient = ({
+  profile,
+  languageData,
+}: ProfileCardClientProps) => {
   return (
     <Card className="h-full">
       <div className="flex items-start justify-between mb-6">
@@ -64,9 +74,17 @@ export const ProfileCard = async ({ profile }: ProfileCardProps) => {
         </div>
       </div>
 
-      <Suspense fallback={<LanguageChartSkeleton />}>
-        <LanguageChart />
-      </Suspense>
+      {languageData && languageData.length > 0 && (
+        <div className="border-t border-border pt-6">
+          <h2 className="portfolio-card-subtitle uppercase tracking-wider mb-4">
+            Languages
+          </h2>
+          {/* <LanguageChart data={languageData} /> */}
+          <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
+            {generateLanguageSummary(languageData)}
+          </p>
+        </div>
+      )}
     </Card>
   );
 };

@@ -35,6 +35,7 @@ export interface ProfileData {
   bio: string;
   email?: string;
   avatar?: string;
+  githubUsername?: string;
   links: SocialLink[];
 }
 
@@ -44,35 +45,6 @@ export interface PortfolioData {
   experience: Experience[];
   technologies: string[];
   projects: Project[];
-}
-
-/* GitHub Contribution Types */
-
-export interface ContributionDay {
-  date: string;
-  count: number;
-  level: 0 | 1 | 2 | 3 | 4;
-}
-
-export interface ContributionWeek {
-  week: number;
-  days: ContributionDay[];
-}
-
-export interface GitHubContributions {
-  username: string;
-  totalContributions: number;
-  year: number;
-  weeks: ContributionWeek[];
-  lastUpdated: string;
-}
-
-export interface GitHubGraphProps {
-  data: GitHubContributions;
-  year?: number;
-  showLegend?: boolean;
-  showHeader?: boolean;
-  maxWidth?: string;
 }
 
 /* Component Props */

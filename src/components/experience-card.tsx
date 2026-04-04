@@ -1,6 +1,6 @@
 "use client";
 
-import type { ExperienceCardProps } from "@/lib/types";
+import type { ExperienceCardProps } from "@/types";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader } from "./ui/card";
 

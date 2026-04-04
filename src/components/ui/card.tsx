@@ -3,10 +3,8 @@ import { cn } from "@/lib/utils";
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-interface CardHeaderProps extends Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  "title"
-> {
+interface CardHeaderProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
 }

@@ -192,6 +192,24 @@ Visit https://react-icons.github.io/react-icons/ to search for icons:
 - `RiFolderLine` - Folder
 - `RiExternalLinkLine` - External link
 
+## Tailwind CSS: Use Canonical Class Names
+
+Always use the shortest, canonical form of Tailwind classes. Tailwind provides shorthand utilities that should be preferred over verbose alternatives.
+
+**Common examples:**
+
+```tsx
+// ❌ WRONG - Verbose/deprecated classes
+className = "flex-shrink-0";
+className = "flex-grow";
+
+// ✅ CORRECT - Canonical shorthand
+className = "shrink-0";
+className = "grow";
+```
+
+**Why:** Canonical classes are more concise, align with Tailwind's modern conventions, and are what the documentation recommends.
+
 ## Component Composition Pattern
 
 ### Always Use Created Components Instead of HTML Elements
@@ -333,10 +351,19 @@ The application supports light and dark modes using CSS variables defined in `/s
 
 ### Using Theme Variables in Components
 
-Always reference CSS variables instead of hardcoding colors:
+Always use **direct Tailwind color classes** that map to CSS variables defined in the `@theme inline` block in `/src/app/globals.css`. If a color doesn't exist in that block, it should not be used.
+
+Available Tailwind color classes:
+- `background`, `foreground`, `card`, `card-foreground`
+- `primary`, `primary-foreground`, `secondary`, `secondary-foreground`
+- `muted`, `muted-foreground`, `destructive`, `border`, `input`, `ring`
 
 ```typescript
-// ✅ CORRECT - Theme-aware
+// ✅ CORRECT - Use direct Tailwind classes (mapped to CSS variables)
+className="bg-background text-foreground"
+className="bg-primary text-primary-foreground"
+
+// ❌ WRONG - Using arbitrary CSS variables
 className="bg-[var(--background)] text-[var(--foreground)]"
 
 // ❌ WRONG - Hardcoded colors
@@ -350,15 +377,16 @@ Theme switching is managed by `next-themes` library:
 - Applies class to `<html>` element (`.dark` for dark mode)
 - CSS automatically applies corresponding variables
 
-Components don't need to handle theme logic — just use the CSS variables.
+Components don't need to handle theme logic — just use the Tailwind color classes.
 
 ### Extending the Theme
 
 To add new colors:
 
 1. Define variables in `/src/app/globals.css` for both `:root` and `.dark`
-2. Use `var(--your-color-name)` in components via Tailwind
-3. All components automatically inherit the new colors
+2. Add mapping to the `@theme inline` block in `/src/app/globals.css` (e.g., `--color-my-color: var(--my-color)`)
+3. Use the new Tailwind class in components (e.g., `bg-my-color`)
+4. All components automatically inherit the new colors
 
 **Why**: Centralized theme management ensures consistency and makes global style changes trivial.
 
@@ -405,8 +433,8 @@ export const MyComponent = forwardRef<HTMLDivElement, MyComponentProps>(
     const baseStyles = ["inline-flex", "items-center", "gap-2"];
 
     const variantStyles = {
-      default: ["bg-[var(--primary)]", "text-[var(--background)]"],
-      secondary: ["bg-[var(--muted)]", "text-[var(--foreground)]"],
+      default: ["bg-primary", "text-primary-foreground"],
+      secondary: ["bg-muted", "text-foreground"],
     };
 
     const sizeStyles = {
@@ -441,7 +469,7 @@ MyComponent.displayName = "MyComponent";
 - **Extend `React.HTMLAttributes`** - Supports standard HTML props (className, onClick, etc.)
 - **Use `cn()` for styling** - Combines base styles with conditional variants + custom classes
 - **Always set `displayName`** - Helps with debugging in React DevTools
-- **Use CSS variables** - Theme-aware colors, never hardcode
+- **Use Tailwind color classes** - Direct classes like `bg-background`, `text-foreground` (mapped to CSS variables defined in `@theme inline`)
 
 ### 4. Why These Patterns Matter
 
@@ -451,7 +479,7 @@ MyComponent.displayName = "MyComponent";
 | `extend React.HTMLAttributes` | Ensures components work like native elements |
 | `cn()` with arrays | Prevents Tailwind conflicts, clean conditional logic |
 | `displayName` | Makes debugging easier in dev tools |
-| CSS variables | Components automatically adapt to theme changes |
+| Tailwind color classes | Components automatically adapt to theme changes via CSS variables |
 
 ### 5. File Placement
 

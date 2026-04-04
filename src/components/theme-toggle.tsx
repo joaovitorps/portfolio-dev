@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { RiMoonLine, RiSunLine } from "react-icons/ri";
-import type { ThemeToggleProps } from "@/lib/types";
+import type { ThemeToggleProps } from "@/types";
 import { Button } from "./ui/button";
 
 export const ThemeToggle = ({ className = "" }: ThemeToggleProps) => {
@@ -19,11 +19,9 @@ export const ThemeToggle = ({ className = "" }: ThemeToggleProps) => {
     return <Button variant="ghost" size="icon" disabled />;
   }
 
-  // Determine the resolved theme (what's actually being used)
   const resolvedTheme = theme === "system" ? systemTheme : theme;
   const isDark = resolvedTheme === "dark";
 
-  // Toggle between light and dark
   const handleToggle = () => {
     setTheme(isDark ? "light" : "dark");
   };

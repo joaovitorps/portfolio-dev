@@ -1,8 +1,8 @@
 "use client";
 
 import { RiExternalLinkLine, RiGithubLine } from "react-icons/ri";
-import type { ProjectsCardProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import type { ProjectsCardProps } from "@/types";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader } from "./ui/card";
 
