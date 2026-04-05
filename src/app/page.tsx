@@ -1,7 +1,6 @@
 import { AboutCard } from "@/components/about-card";
 import { ExperienceCard } from "@/components/experience-card";
 import { ProfileCard } from "@/components/profile-card";
-import { ProjectsCard } from "@/components/projects-card";
 import { TechnologiesCard } from "@/components/technologies-card";
 import portfolioDataRaw from "@/data/portfolio.json";
 import type { PortfolioData } from "@/types";
@@ -21,9 +20,6 @@ export default function Home() {
         <div className="lg:col-span-2 space-y-6 overflow-y-auto lg:max-h-[calc(100vh-4rem)]">
           {/* About Card */}
           <AboutCard content={portfolioData.about} />
-
-          {/* Projects Card */}
-          <ProjectsCard projects={portfolioData.projects} />
 
           {/* Experience Card */}
           <ExperienceCard experiences={portfolioData.experience} />
