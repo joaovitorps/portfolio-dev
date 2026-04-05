@@ -2,7 +2,16 @@
   "profile": {
     "name": "Joao Santos",
     "title": "Full-Stack Web Developer",
-    "bio": "A meticulous developer gathering knowledge by building things for fun :)",
+    "bio": {
+      "text": "A meticulous developer gathering knowledge by building things",
+      "variations": [
+        "fast",
+        "reliably",
+        "beautifully",
+        "securely",
+        "for fun :)"
+      ]
+    },
     "githubUsername": "joaovitorps",
     "email": "dev.joaosantos@outlook.com",
     "links": [

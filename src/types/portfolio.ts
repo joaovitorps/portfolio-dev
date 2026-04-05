@@ -29,10 +29,15 @@ export interface SocialLink {
   icon?: string;
 }
 
+export interface BioData {
+  text: string;
+  variations?: string[];
+}
+
 export interface ProfileData {
   name: string;
   title: string;
-  bio: string;
+  bio: BioData;
   email?: string;
   avatar?: string;
   githubUsername?: string;

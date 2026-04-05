@@ -4,6 +4,7 @@ import Image from "next/image";
 import { RiGithubLine, RiLinkedinLine, RiMailLine } from "react-icons/ri";
 import { generateLanguageSummary } from "@/lib/github";
 import type { LanguageData, ProfileData } from "@/types";
+import { TextRotatorHeadline } from "./text-rotator-headline";
 import { ThemeToggle } from "./theme-toggle";
 import { ButtonLink } from "./ui/button-link";
 import { Card } from "./ui/card";
@@ -49,9 +50,7 @@ export const ProfileCardClient = ({
         <ThemeToggle />
       </div>
 
-      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-        {profile.bio}
-      </p>
+      <TextRotatorHeadline profile={profile} className="mb-6" />
 
       <div className="mb-6 space-y-3">
         <h2 className="portfolio-card-subtitle uppercase tracking-wider">

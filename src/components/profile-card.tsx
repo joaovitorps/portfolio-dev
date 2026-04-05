@@ -6,6 +6,7 @@ import { IoIosMailUnread } from "react-icons/io";
 import { SiGithub, SiHackerrank } from "react-icons/si";
 import { TbFileCvFilled } from "react-icons/tb";
 import type { ProfileCardProps } from "@/types";
+import { TextRotatorHeadline } from "./text-rotator-headline";
 import { ThemeToggle } from "./theme-toggle";
 import { ButtonLink } from "./ui/button-link";
 import { Card } from "./ui/card";
@@ -43,9 +44,7 @@ export const ProfileCard = async ({ profile }: ProfileCardProps) => {
         <ThemeToggle />
       </div>
 
-      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-        {profile.bio}
-      </p>
+      <TextRotatorHeadline profile={profile} className="mb-6" />
 
       <div className="mb-6 space-y-3">
         <div className="flex gap-2">
