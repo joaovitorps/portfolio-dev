@@ -34,7 +34,7 @@ The portfolio displays a chart of programming languages used across GitHub repos
 ### How It Works
 
 1. **Build Time** (`npm run build`):
-   - Script `/scripts/fetch-github-data.js` runs via `prebuild`
+   - Script `/scripts/fetch-github-data.ts` runs via `prebuild`
    - Fetches language data from GitHub API for all repositories
    - Aggregates data by language with color coding
    - Saves to `/public/github-data.json` (~1.5KB)

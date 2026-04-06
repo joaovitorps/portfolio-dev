@@ -40,7 +40,7 @@ Content is stored in `/src/data/portfolio.json`. This file is imported and used 
   profile: {
     name: string                    // Full name
     title: string                   // Job title/headline
-    bio: string                     // Short biography
+    bio: BioData | string           // Biography (object with text and optional variations, or plain string)
     email: string                   // Contact email
     links: {                        // Social links array
       id: string                    // Unique identifier (github, linkedin, email)
