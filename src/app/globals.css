@@ -1,0 +1,223 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "tw-animate-css";
+
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    @apply border-border outline-ring/50;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  html {
+    @apply font-sans;
+  }
+
+  /* Transparent scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted-foreground);
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-color: var(--border) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+@theme inline {
+  /* Core Theme Colors - Used by Tailwind */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Border Radius Tokens */
+  --radius-sm: calc(var(--radius) * 0.6);
+
+  /* Custom Animations */
+  --animate-blink: blink 1s step-end infinite;
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+:root {
+  --background: #ebf3f0;
+  --foreground: #0d3d36;
+  --card: #f8fffe;
+  --card-foreground: #0d3d36;
+  --primary: #0d5c47;
+  --primary-foreground: #f8fffe;
+  --secondary: #ff6b35;
+  --secondary-foreground: #f8fffe;
+  --muted: #e0f2ed;
+  --muted-foreground: #0d5c47;
+  --destructive: #e11d48;
+  --border: #c8e0db;
+  --input: #e0f2ed;
+  --ring: #408a71;
+  --radius: 0.625rem;
+  --portfolio-primary: #f8fffe;
+  --portfolio-secondary: #ff6b35;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #e8f4f1;
+  --card: #091413;
+  --card-foreground: #e8f4f1;
+  --primary: #408a71;
+  --primary-foreground: #091413;
+  --secondary: #ff6b35;
+  --secondary-foreground: #091413;
+  --muted: #285a48;
+  --muted-foreground: #7fa99f;
+  --destructive: #e11d48;
+  --border: #1f4037;
+  --input: #1f4037;
+  --ring: #b0e4cc;
+  --radius: 0.625rem;
+  --portfolio-primary: #000000;
+  --portfolio-secondary: #ff6b35;
+}
+
+@layer components {
+  /* Custom color utilities for portfolio */
+  .text-portfolio-primary {
+    color: var(--portfolio-primary);
+  }
+
+  .text-portfolio-secondary {
+    color: var(--portfolio-secondary);
+  }
+
+  .bg-portfolio-primary {
+    background-color: var(--portfolio-primary);
+  }
+
+  .bg-portfolio-secondary {
+    background-color: var(--portfolio-secondary);
+  }
+
+  .border-portfolio-secondary {
+    border-color: var(--portfolio-secondary);
+  }
+
+  /* Portfolio Card Styles */ .portfolio-card {
+    background-color: var(--card);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    transition: all 0.2s;
+  }
+
+  .portfolio-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--card-foreground);
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-card-subtitle {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Timeline Styles */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .timeline-dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 9999px;
+    border: 2px solid var(--portfolio-secondary);
+    background-color: var(--background);
+    flex-shrink: 0;
+    margin-top: 0.3125rem;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 0.4375rem;
+    top: 2rem;
+    width: 2px;
+    height: calc(100% - 2rem);
+    background-color: var(--border);
+  }
+
+  .timeline-content {
+    flex: 1;
+  }
+
+  /* Responsive Typography */
+  .text-balance {
+    text-wrap: balance;
+  }
+}

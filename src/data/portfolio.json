@@ -1,0 +1,106 @@
+{
+  "profile": {
+    "name": "Joao Santos",
+    "title": "Full-Stack Web Developer",
+    "bio": {
+      "text": "A meticulous developer gathering knowledge by building things",
+      "variations": [
+        "fast",
+        "reliably",
+        "beautifully",
+        "securely",
+        "for fun :)"
+      ]
+    },
+    "githubUsername": "joaovitorps",
+    "email": "dev.joaosantos@outlook.com",
+    "links": [
+      {
+        "id": "github",
+        "platform": "github",
+        "url": "https://github.com/joaovitorps",
+        "label": "GitHub"
+      },
+      {
+        "id": "linkedin",
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/joaovitorps/",
+        "label": "LinkedIn"
+      },
+      {
+        "id": "email",
+        "platform": "email",
+        "url": "mailto:dev.joaosantos@outlook.com",
+        "label": "Email"
+      },
+      {
+        "id": "hackerrank",
+        "platform": "hackerrank",
+        "url": "https://www.hackerrank.com/profile/joaovitorps",
+        "label": "HackerRank"
+      }
+    ]
+  },
+  "about": "I'm a full-stack developer with 6 years of experience building applications and understanding how the full development process comes together. I specialize in ReactJS, Laravel, and Node.js, with a focus on applying SOLID principles and Clean Architecture. I'm passionate about automating complex workflows, reducing technical debt, and collaborating in agile environments to deliver scalable, high-impact solutions.",
+  "experience": [
+    {
+      "id": "exp-1",
+      "company": "Lydia Sistemas Inteligentes",
+      "role": "Web Developer",
+      "period": "Jul 2024 - Present",
+      "startDate": "2024-07-01",
+      "description": "Collaborated to engineer a plug-and-play integration tool using Go, transforming a 30-day manual process into an automated workflow. Refactored legacy PHP portals into scalable Laravel REST APIs and developed administrative dashboards using Bootstrap.",
+      "technologies": ["Go", "Laravel", "PHP", "REST API", "Bootstrap"]
+    },
+    {
+      "id": "exp-2",
+      "company": "Scopic Software",
+      "role": "Technical Support Engineer",
+      "period": "Jan 2022 - Mar 2024",
+      "startDate": "2022-01-01",
+      "endDate": "2024-03-01",
+      "description": "Identified and resolved root causes of recurring support tickets by deploying permanent fixes using React and PHP. Managed the end-to-end ticket lifecycle using Jira and daily Scrum syncs to accelerate hotfix deployment.",
+      "technologies": ["React", "PHP", "Jira", "Scrum"]
+    },
+    {
+      "id": "exp-3",
+      "company": "Segure Segurança do Trabalho",
+      "role": "Lead Web Developer",
+      "period": "Jan 2019 - Jan 2022",
+      "startDate": "2019-01-01",
+      "endDate": "2022-01-01",
+      "description": "Spearheaded full-stack modernization using Laravel and ReactJS. Modeled scalable MySQL databases and established CI/CD workflows using GitLab. Directed the team using Agile Scrum methodologies to streamline sprint planning.",
+      "technologies": [
+        "Laravel",
+        "ReactJS",
+        "MySQL",
+        "GitLab",
+        "CI/CD",
+        "Scrum"
+      ]
+    }
+  ],
+  "technologies": [
+    "Laravel",
+    "ReactJS",
+    "Node.js",
+    "MySQL",
+    "GIT",
+    "Bootstrap",
+    "jQuery",
+    "REST API",
+    "Tailwind",
+    "GO",
+    "Typescript"
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "Portfolio dev",
+      "description": "Dev portfolio V1",
+      "technologies": ["HTML", "CSS"],
+      "githubLink": "https://github.com/joaovitorps/portfolio-dev",
+      "link": "/v1/index.html"
+    }
+  ]
+}
