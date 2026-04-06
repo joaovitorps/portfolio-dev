@@ -1,5 +1,7 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+
 type ThemeOption =
   | "option1"
   | "option2"
@@ -44,9 +46,10 @@ export const ThemeSwitcher = ({
         <button
           type="button"
           key={option}
-          className={`theme-switcher-button ${
-            currentTheme === option ? "active" : ""
-          }`}
+          className={cn(
+            "theme-switcher-button",
+            currentTheme === option && "active",
+          )}
           onClick={() => onThemeChange(option)}
         >
           {themeLabels[option]}

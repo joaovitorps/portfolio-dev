@@ -1,5 +1,7 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+
 const HEX_REGEX = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
 
 interface ContrastPair {
@@ -81,7 +83,12 @@ export const ContrastGrid = ({ pairs }: ContrastGridProps) => {
                 </td>
                 <td>
                   <span
-                    className={`contrast-badge contrast-badge-${level.toLowerCase()}`}
+                    className={cn(
+                      "contrast-badge",
+                      level === "AAA" && "contrast-badge-aaa",
+                      level === "AA" && "contrast-badge-aa",
+                      level === "Fail" && "contrast-badge-fail",
+                    )}
                   >
                     {level === "AAA" && "✅"}
                     {level === "AA" && "⚠️"}
