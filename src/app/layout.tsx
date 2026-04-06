@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+
+export const metadata: Metadata = {
+  icons: {
+    icon: "/v1/assets/favicon/dev.ico",
+  },
+};
 
 export default function RootLayout({
   children,
