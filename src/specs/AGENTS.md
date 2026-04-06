@@ -129,7 +129,7 @@ This document serves as a template for tracking and planning feature integration
 ### TypeScript
 - Strict mode enabled
 - Proper typing for props and returns
-- Interface definitions in `lib/types.ts`
+- Interface definitions in `src/types/portfolio.ts`
 
 ### Component Structure
 ```

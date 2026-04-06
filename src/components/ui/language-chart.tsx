@@ -7,7 +7,7 @@ import { LanguageChartClient } from "./language-chart-client";
 
 /**
  * Server component for rendering GitHub language distribution
- * Reads pre-built data from /public/github-data.json (generated at build time)
+ * Reads pre-built data from /github-data.json (generated at build time)
  * This eliminates API calls at runtime and ensures data is always available
  * Delegates chart rendering to client component (Recharts requires it)
  * Returns null silently if data is unavailable (errors logged to console)
@@ -21,13 +21,26 @@ export async function LanguageChart() {
       ? `https://${process.env.VERCEL_URL}`
       : "http://localhost:3000";
 
+    const bypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+    const headers: HeadersInit = {};
+
+    if (process.env.NODE_ENV === "production") {
+      if (!bypassSecret) {
+        console.warn("⚠️  VERCEL_AUTOMATION_BYPASS_SECRET not found.");
+        return null;
+      }
+
+      headers["x-vercel-protection-bypass"] = bypassSecret;
+    }
+
     const response = await fetch(`${baseUrl}/github-data.json`, {
       cache: "no-store",
+      headers,
     });
 
     if (!response.ok) {
       console.warn(
-        "⚠️  GitHub data file not found at /public/github-data.json. Was the build script executed?",
+        "⚠️  GitHub data file not found at /github-data.json. Was the build script executed?",
       );
       return null;
     }

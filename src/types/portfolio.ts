@@ -23,7 +23,13 @@ export interface Project {
 
 export interface SocialLink {
   id: string;
-  platform: "github" | "linkedin" | "email" | "twitter" | "website";
+  platform:
+    | "github"
+    | "linkedin"
+    | "email"
+    | "twitter"
+    | "website"
+    | "hackerrank";
   url: string;
   label: string;
   icon?: string;
