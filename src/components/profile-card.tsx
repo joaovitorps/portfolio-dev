@@ -22,7 +22,7 @@ const socialIconMap: Record<string, React.ReactNode> = {
 
 export const ProfileCard = async ({ profile }: ProfileCardProps) => {
   return (
-    <Card className="h-full">
+    <Card className="lg:h-[calc(100vh-4rem)]">
       <div className="flex items-start justify-between mb-6">
         <div className="flex-1">
           <div className="relative w-16 h-16 mb-4 rounded-lg overflow-hidden">
@@ -84,7 +84,7 @@ export const ProfileCard = async ({ profile }: ProfileCardProps) => {
             </span>
           </ButtonLink>
           <ButtonLink
-            href="https://github.com/joaovitorps/releases"
+            href="https://github.com/joaovitorps/portfolio-dev/releases/download/2.0.0/Joao_Santos_Software_Engineer.pdf"
             target="_blank"
             rel="noopener noreferrer"
             variant="transparent"

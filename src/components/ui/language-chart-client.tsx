@@ -21,7 +21,7 @@ export function LanguageChartClient({ languages }: LanguageChartClientProps) {
   }));
 
   return (
-    <div className="w-full">
+    <div className="grid md:grid-cols-3 lg:grid-cols-1">
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
@@ -61,7 +61,7 @@ export function LanguageChartClient({ languages }: LanguageChartClientProps) {
         </PieChart>
       </ResponsiveContainer>
 
-      <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
+      <div className="mt-4 grid grid-cols-2 gap-2 text-xs md:col-span-2">
         {languages.slice(0, 8).map((lang) => (
           <div key={lang.language} className="flex items-center gap-2">
             <div
