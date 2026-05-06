@@ -1,4 +1,4 @@
-# GitHub Actions: Automated Portfolio Data Refresh
+# GitHub Actions: Automated Portfolio Data Refresh AND npm run lint check and fail if not possible
 
 ## Overview
 
@@ -17,6 +17,7 @@ The build-time data fetching approach (see [Learning: Build-Time Data Fetching S
 - Production deployments on Vercel don't automatically update GitHub data
 
 A scheduled GitHub Actions workflow would automatically:
+
 1. Fetch fresh GitHub language data weekly
 2. Commit updates to the repository
 3. Trigger a Vercel deployment with the new data
@@ -24,9 +25,11 @@ A scheduled GitHub Actions workflow would automatically:
 ## Proposed Workflow
 
 ### File Location
+
 `.github/workflows/refresh-github-data.yml`
 
 ### Trigger Schedule
+
 - **Automatic**: Every Sunday at 00:00 UTC (weekly refresh)
 - **Manual**: Workflow dispatch for on-demand runs
 
@@ -38,7 +41,7 @@ name: Refresh GitHub Language Data
 on:
   schedule:
     # Every Sunday at 00:00 UTC
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
   workflow_dispatch: # Allow manual trigger from GitHub UI
 
 jobs:
@@ -56,8 +59,8 @@ jobs:
       # 2. Setup Node.js runtime
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       # 3. Install dependencies
       - name: Install dependencies
@@ -105,11 +108,11 @@ jobs:
 
 Configure these in GitHub repository settings (**Settings → Secrets and variables → Actions**):
 
-| Secret | Description | How to Get |
-|--------|-------------|-----------|
+| Secret              | Description                  | How to Get                                                                  |
+| ------------------- | ---------------------------- | --------------------------------------------------------------------------- |
 | `GITHUB_LANG_TOKEN` | GitHub personal access token | [Create token](https://github.com/settings/tokens) with `public_repo` scope |
-| `VERCEL_TOKEN` | Vercel API token (optional) | [Create in Vercel Dashboard](https://vercel.com/account/tokens) |
-| `VERCEL_PROJECT_ID` | Vercel project ID (optional) | Found in Vercel project settings |
+| `VERCEL_TOKEN`      | Vercel API token (optional)  | [Create in Vercel Dashboard](https://vercel.com/account/tokens)             |
+| `VERCEL_PROJECT_ID` | Vercel project ID (optional) | Found in Vercel project settings                                            |
 
 **Note**: The Vercel deployment step is optional. GitHub will automatically create a commit, which will trigger a Vercel deployment via the standard GitHub integration (if configured).
 
@@ -119,20 +122,21 @@ Configure these in GitHub repository settings (**Settings → Secrets and variab
 ✅ **Audit Trail**: Each refresh creates a commit showing what changed  
 ✅ **Production Ready**: Fresh data available on Vercel immediately  
 ✅ **On-Demand**: Manual workflow dispatch for immediate refreshes  
-✅ **Low Cost**: GitHub Actions included in free tier  
+✅ **Low Cost**: GitHub Actions included in free tier
 
 ## Risks & Considerations
 
 ⚠️ **Token Rotation**: GitHub tokens don't expire in tests; consider rotating quarterly  
 ⚠️ **API Rate Limits**: If multiple workflows run simultaneously, could hit limits  
 ⚠️ **Commit Noise**: Weekly commits might clutter git history  
-⚠️ **Dependency on Secrets**: Requires 2-3 secrets to be configured correctly  
+⚠️ **Dependency on Secrets**: Requires 2-3 secrets to be configured correctly
 
 ## Alternative: Vercel Cron Jobs
 
 For users on **Vercel Pro+**, cron jobs can trigger revalidation without GitHub Actions:
 
 **Setup**:
+
 1. Add `vercel.json` configuration with cron schedule
 2. Create API route that triggers `revalidatePath()`
 3. Set `CRON_SECRET` environment variable
