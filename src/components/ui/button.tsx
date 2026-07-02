@@ -31,6 +31,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       "transition-colors duration-200",
       "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
       "disabled:opacity-50 disabled:cursor-not-allowed",
+      "hover:cursor-pointer",
     ];
 
     const variantStyles = {
