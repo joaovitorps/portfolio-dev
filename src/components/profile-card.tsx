@@ -10,6 +10,7 @@ import { TextRotatorHeadline } from "./text-rotator-headline";
 import { ThemeToggle } from "./theme-toggle";
 import { ButtonLink } from "./ui/button-link";
 import { Card } from "./ui/card";
+import { CartoonButton } from "./ui/cartoon-button";
 import { LanguageChart } from "./ui/language-chart";
 import { LanguageChartSkeleton } from "./ui/language-chart-skeleton";
 
@@ -23,17 +24,22 @@ const socialIconMap: Record<string, React.ReactNode> = {
 export const ProfileCard = async ({ profile }: ProfileCardProps) => {
   return (
     <Card className="lg:h-[calc(100vh-4rem)]">
-      <div className="flex items-start justify-between mb-6">
-        <div className="flex-1">
-          <div className="relative w-16 h-16 mb-4 rounded-lg overflow-hidden">
-            <Image
-              src="/v1/assets/pfp.jpg"
-              alt={profile.name}
-              fill
-              className="object-cover"
-              sizes="64px"
-            />
-          </div>
+      <div className="flex items-start justify-between">
+        <div className="relative w-16 h-16 mb-4 rounded-lg overflow-hidden">
+          <Image
+            src="/v1/assets/pfp.jpg"
+            alt={profile.name}
+            fill
+            className="object-cover"
+            sizes="64px"
+          />
+        </div>
+        <div>
+          <ThemeToggle />
+        </div>
+      </div>
+      <div className="flex items-center mb-6 justify-between">
+        <div>
           <h1 className="text-2xl font-bold text-card-foreground mb-1">
             {profile.name}
           </h1>
@@ -41,7 +47,13 @@ export const ProfileCard = async ({ profile }: ProfileCardProps) => {
             {profile.title}
           </p>
         </div>
-        <ThemeToggle />
+        <div className="">
+          <CartoonButton
+            href="/v1/index.html"
+            label="check `/v1` here"
+            color="bg-[#ff6b35]"
+          />
+        </div>
       </div>
 
       <TextRotatorHeadline profile={profile} className="mb-6" />
