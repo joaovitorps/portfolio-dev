@@ -97,10 +97,29 @@
     {
       "id": "proj-1",
       "title": "Portfolio dev",
-      "description": "Dev portfolio V1",
-      "technologies": ["HTML", "CSS"],
+      "description": "Personal portfolio rebuilt as a focused Next.js experience, with centralized content, theme support, and archived V1 pages preserved for comparison.",
+      "image": "/assets/portfolio.png",
+      "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
       "githubLink": "https://github.com/joaovitorps/portfolio-dev",
-      "link": "/v1/index.html"
+      "link": "https://joaovitorps.dev"
+    },
+    {
+      "id": "proj-2",
+      "title": "Find a friend",
+      "description": "Pet adoption project focused on helping people discover nearby animals and connect with organizations through a clear search-first flow.",
+      "image": "/assets/find-a-friend.png",
+      "technologies": ["React", "TypeScript", "Tailwind CSS"],
+      "githubLink": "https://github.com/joaovitorps/find-a-pet-api",
+      "link": "https://findafriend.joaovitorps.dev"
+    },
+    {
+      "id": "proj-3",
+      "title": "Transactions (API)",
+      "description": "Fastify API for tracking transactions with typed routes, predictable validation, and a backend structure built for automated testing.",
+      "image": "/assets/transactions-app.png",
+      "technologies": ["Fastify", "Node.js", "TypeScript"],
+      "githubLink": "https://github.com/joaovitorps/transactions-fastify-api",
+      "link": "https://transactions.joaovitorps.dev"
     }
   ]
 }
