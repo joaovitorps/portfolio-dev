@@ -3,12 +3,10 @@ import { ExperienceCard } from "@/components/experience-card";
 import { ProfileCard } from "@/components/profile-card";
 import { ProjectsCard } from "@/components/projects-card";
 import { TechnologiesCard } from "@/components/technologies-card";
-import portfolioDataRaw from "@/data/portfolio.json";
-import type { PortfolioData } from "@/types";
+import { getPortfolioData } from "@/lib/portfolio";
 
-const portfolioData = portfolioDataRaw as PortfolioData;
-
-export default function Home() {
+export default async function Home() {
+  const portfolioData = await getPortfolioData();
   return (
     <main className="min-h-screen bg-background">
       <div className="grid grid-cols-1 lg:flex gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8 h-auto">

@@ -96,7 +96,7 @@ export const ProfileCard = async ({ profile }: ProfileCardProps) => {
             </span>
           </ButtonLink>
           <ButtonLink
-            href="https://github.com/joaovitorps/portfolio-dev/releases/download/2.0.0/Joao_Santos_Software_Engineer.pdf"
+            href="/resume"
             target="_blank"
             rel="noopener noreferrer"
             variant="transparent"
