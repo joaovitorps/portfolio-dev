@@ -45,6 +45,7 @@ export interface ProfileData {
   title: string;
   bio: BioData;
   email: string;
+  resumeUrl?: string;
   avatar?: string;
   githubUsername?: string;
   links: SocialLink[];
