@@ -40,12 +40,17 @@ export interface BioData {
   variations?: string[];
 }
 
+export type ResumeUrlConfig = {
+  download?: string;
+  preview?: string;
+};
+
 export interface ProfileData {
   name: string;
   title: string;
   bio: BioData;
   email: string;
-  resumeUrl?: string;
+  resumeUrl?: ResumeUrlConfig;
   avatar?: string;
   githubUsername?: string;
   links: SocialLink[];

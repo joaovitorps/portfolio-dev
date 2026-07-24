@@ -1,5 +1,5 @@
-import localPortfolioDataRaw from "@/data/portfolio.json" with { type: "json" };
 import process from "node:process";
+import localPortfolioDataRaw from "@/data/portfolio.json" with { type: "json" };
 import type { PortfolioData } from "@/types";
 
 const localPortfolioData = localPortfolioDataRaw as PortfolioData;
@@ -27,8 +27,14 @@ export async function getPortfolioData(): Promise<PortfolioData> {
       ...remoteData,
       profile: {
         ...remoteData.profile,
-        resumeUrl:
-          remoteData.profile.resumeUrl || localPortfolioData.profile.resumeUrl,
+        resumeUrl: {
+          download:
+            remoteData.profile.resumeUrl?.download ||
+            localPortfolioData.profile.resumeUrl?.download,
+          preview:
+            remoteData.profile.resumeUrl?.preview ||
+            localPortfolioData.profile.resumeUrl?.preview,
+        },
       },
     };
   } catch (error) {

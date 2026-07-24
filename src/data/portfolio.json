@@ -14,7 +14,10 @@
     },
     "githubUsername": "joaovitorps",
     "email": "dev.joaosantos@outlook.com",
-    "resumeUrl": "https://github.com/joaovitorps/portfolio-dev/releases/download/2.0.0/Joao_Santos_Software_Engineer.pdf",
+    "resumeUrl": {
+      "download": "https://github.com/joaovitorps/portfolio-dev/releases/download/2.0.0/Joao_Santos_Software_Engineer.pdf",
+      "preview": "https://github.com/joaovitorps/portfolio-dev/releases/download/2.0.0/Joao_Santos_Software_Engineer.pdf"
+    },
     "links": [
       {
         "id": "github",
@@ -51,7 +54,13 @@
       "period": "Jul 2024 - Present",
       "startDate": "2024-07-01",
       "description": "Collaborated to engineer a plug-and-play integration tool using Go, transforming a 30-day manual process into an automated workflow. Refactored legacy PHP portals into scalable Laravel REST APIs and developed administrative dashboards using Bootstrap.",
-      "technologies": ["Go", "Laravel", "PHP", "REST API", "Bootstrap"]
+      "technologies": [
+        "Go",
+        "Laravel",
+        "PHP",
+        "REST API",
+        "Bootstrap"
+      ]
     },
     {
       "id": "exp-2",
@@ -61,7 +70,12 @@
       "startDate": "2022-01-01",
       "endDate": "2024-03-01",
       "description": "Identified and resolved root causes of recurring support tickets by deploying permanent fixes using React and PHP. Managed the end-to-end ticket lifecycle using Jira and daily Scrum syncs to accelerate hotfix deployment.",
-      "technologies": ["React", "PHP", "Jira", "Scrum"]
+      "technologies": [
+        "React",
+        "PHP",
+        "Jira",
+        "Scrum"
+      ]
     },
     {
       "id": "exp-3",
@@ -100,7 +114,12 @@
       "title": "Portfolio dev",
       "description": "Personal portfolio rebuilt as a focused Next.js experience, with centralized content, theme support, and archived V1 pages preserved for comparison.",
       "image": "/assets/portfolio.png",
-      "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
       "githubLink": "https://github.com/joaovitorps/portfolio-dev",
       "link": "https://joaovitorps.dev"
     },
@@ -109,7 +128,11 @@
       "title": "Find a friend",
       "description": "Pet adoption project focused on helping people discover nearby animals and connect with organizations through a clear search-first flow.",
       "image": "/assets/find-a-friend.png",
-      "technologies": ["React", "TypeScript", "Tailwind CSS"],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
       "githubLink": "https://github.com/joaovitorps/find-a-pet-api",
       "link": "https://findafriend.joaovitorps.dev"
     },
@@ -118,7 +141,11 @@
       "title": "Transactions (API)",
       "description": "Fastify API for tracking transactions with typed routes, predictable validation, and a backend structure built for automated testing.",
       "image": "/assets/transactions-app.png",
-      "technologies": ["Fastify", "Node.js", "TypeScript"],
+      "technologies": [
+        "Fastify",
+        "Node.js",
+        "TypeScript"
+      ],
       "githubLink": "https://github.com/joaovitorps/transactions-fastify-api",
       "link": "https://transactions.joaovitorps.dev"
     }
