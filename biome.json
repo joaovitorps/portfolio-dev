@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.10/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.9/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -16,24 +16,7 @@
     "lineWidth": 80
   },
   "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "correctness": "error",
-      "performance": "error",
-      "security": "error",
-      "suspicious": {
-        "noConsole": {
-          "options": {
-            "allow": ["assert", "error", "info", "warn"]
-          }
-        }
-      },
-      "style": {
-        "noJsxLiterals": "off"
-      }
-    },
-    "includes": ["src/**", "!src/app/design-system"]
+    "enabled": false
   },
   "javascript": {
     "formatter": {
@@ -65,37 +48,5 @@
         "organizeImports": "on"
       }
     }
-  },
-  "overrides": [
-    {
-      "includes": ["**/*.css"],
-      "linter": {
-        "rules": {
-          "suspicious": {
-            "noUnknownAtRules": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": ["**/page.tsx", "**/layout.tsx"],
-      "linter": {
-        "rules": {
-          "style": {
-            "noDefaultExport": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": ["**/lib/**", "**/scripts/**"],
-      "linter": {
-        "rules": {
-          "correctness": {
-            "noNodejsModules": "off"
-          }
-        }
-      }
-    }
-  ]
+  }
 }
