@@ -60,10 +60,6 @@ export const ProjectsCard = ({ projects }: ProjectsCardProps) => {
   }, []);
 
   useEffect(() => {
-    setActiveIndex((currentIndex) => Math.min(currentIndex, maxIndex));
-  }, [maxIndex]);
-
-  useEffect(() => {
     if (!canSlide || isPaused || prefersReducedMotion) {
       return;
     }
