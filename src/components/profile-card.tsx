@@ -30,7 +30,7 @@ function buildPictureURL(picture: string) {
 
 export const ProfileCard = async ({ profile }: ProfileCardProps) => {
   return (
-    <Card className="lg:h-[calc(100vh-4rem)]">
+    <Card className="lg:h-[calc(100vh-4rem)] overflow-y-scroll">
       <div className="flex items-start justify-between">
         <div className="relative w-16 h-16 mb-4 rounded-lg overflow-hidden">
           <Image
@@ -54,7 +54,7 @@ export const ProfileCard = async ({ profile }: ProfileCardProps) => {
             {profile.title}
           </p>
         </div>
-        <div className="">
+        <div>
           <CartoonButton
             href="/v1/index.html"
             label="check `/v1` here"
@@ -63,62 +63,58 @@ export const ProfileCard = async ({ profile }: ProfileCardProps) => {
         </div>
       </div>
 
-      <TextRotatorHeadline profile={profile} className="mb-6" />
+      <TextRotatorHeadline profile={profile} className="mb-5 h-12" />
 
-      <div className="mb-6 space-y-3">
-        <div className="flex gap-2">
-          {profile.links
-            .filter((link) => link.platform !== "email")
-            .map((link) => (
-              <ButtonLink
-                variant="transparent"
-                size="icon"
-                key={link.id}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={`Visit ${link.label}`}
-                className="group hover:bg-secondary hover:text-secondary-foreground transition-all duration-initial overflow-hidden hover:w-auto hover:px-3"
-              >
-                <span className="flex items-center gap-1 whitespace-nowrap">
-                  {socialIconMap[link.platform]}
-                  <span className="hidden group-hover:inline text-xs">
-                    {link.label}
-                  </span>
+      <div className="flex justify-between gap-2 space-y-3">
+        {profile.links
+          .filter((link) => link.platform !== "email")
+          .map((link) => (
+            <ButtonLink
+              variant="transparent"
+              size="icon"
+              key={link.id}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={`Visit ${link.label}`}
+              className="group px-6 hover:bg-secondary hover:text-secondary-foreground transition-all duration-initial overflow-hidden hover:w-auto hover:px-3"
+            >
+              <span className="flex items-center gap-1 whitespace-nowrap">
+                {socialIconMap[link.platform]}
+                <span className="hidden group-hover:inline text-xs">
+                  {link.label}
                 </span>
-              </ButtonLink>
-            ))}
-          <ButtonLink
-            href={`mailto:${profile.email}`}
-            variant="transparent"
-            size="icon"
-            className="group hover:bg-secondary hover:text-secondary-foreground transition-all duration-initial overflow-hidden hover:w-auto hover:px-3"
-            title="Email me"
-          >
-            <span className="flex items-center gap-1 whitespace-nowrap">
-              <IoIosMailUnread size={20} />
-              <span className="hidden group-hover:inline text-xs">
-                Email me
               </span>
+            </ButtonLink>
+          ))}
+        <ButtonLink
+          href={`mailto:${profile.email}`}
+          variant="transparent"
+          size="icon"
+          className="group px-6 hover:bg-secondary hover:text-secondary-foreground transition-all duration-initial overflow-hidden hover:w-auto hover:px-3"
+          title="Email me"
+        >
+          <span className="flex items-center gap-1 whitespace-nowrap">
+            <IoIosMailUnread size={20} />
+            <span className="hidden group-hover:inline text-xs">Email me</span>
+          </span>
+        </ButtonLink>
+        <ButtonLink
+          href="/resume"
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="transparent"
+          size="icon"
+          className="group hover:bg-secondary hover:text-secondary-foreground transition-all duration-initial overflow-hidden hover:w-auto hover:px-3"
+          title="Download CV"
+        >
+          <span className="flex items-center gap-1 whitespace-nowrap">
+            <TbFileCvFilled size={20} />
+            <span className="hidden group-hover:inline text-xs">
+              Download CV
             </span>
-          </ButtonLink>
-          <ButtonLink
-            href="/resume"
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="transparent"
-            size="icon"
-            className="group hover:bg-secondary hover:text-secondary-foreground transition-all duration-initial overflow-hidden hover:w-auto hover:px-3"
-            title="Download CV"
-          >
-            <span className="flex items-center gap-1 whitespace-nowrap">
-              <TbFileCvFilled size={20} />
-              <span className="hidden group-hover:inline text-xs">
-                Download CV
-              </span>
-            </span>
-          </ButtonLink>
-        </div>
+          </span>
+        </ButtonLink>
       </div>
 
       <Suspense fallback={<LanguageChartSkeleton />}>
