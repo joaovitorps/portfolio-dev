@@ -21,13 +21,20 @@ const socialIconMap: Record<string, React.ReactNode> = {
   hackerrank: <SiHackerrank size={20} />,
 };
 
+function buildPictureURL(picture: string) {
+  const githubAvatarsDomain = process.env.NEXT_PUBLIC_GITHUB_AVATARS_DOMAIN;
+  const pictureURL = `https://${githubAvatarsDomain}/${picture}`;
+
+  return pictureURL;
+}
+
 export const ProfileCard = async ({ profile }: ProfileCardProps) => {
   return (
     <Card className="lg:h-[calc(100vh-4rem)]">
       <div className="flex items-start justify-between">
         <div className="relative w-16 h-16 mb-4 rounded-lg overflow-hidden">
           <Image
-            src="/v1/assets/pfp.jpg"
+            src={buildPictureURL(profile.picture)}
             alt={profile.name}
             fill
             className="object-cover"

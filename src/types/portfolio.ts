@@ -46,6 +46,7 @@ export type ResumeUrlConfig = {
 };
 
 export interface ProfileData {
+  picture: string;
   name: string;
   title: string;
   bio: BioData;
