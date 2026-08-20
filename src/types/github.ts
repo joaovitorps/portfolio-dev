@@ -15,7 +15,7 @@ export interface RepoLanguages {
 }
 
 export interface LanguageData {
-  language: string;
+  name: string;
   bytes: number;
   percentage: number;
   color: string;

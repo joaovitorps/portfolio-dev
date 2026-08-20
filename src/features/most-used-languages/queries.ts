@@ -1,9 +1,5 @@
-// biome-ignore lint/correctness/noNodejsModules: Server component needs to access process.env
 import process from "node:process";
-// import { unstable_noStore } from "next/cache";
-import { generateLanguageSummary } from "@/lib/github";
 import type { AggregatedLanguages } from "@/types/github";
-import { LanguageChartClient } from "./language-chart-client";
 
 /**
  * Server component for rendering GitHub language distribution
@@ -12,7 +8,7 @@ import { LanguageChartClient } from "./language-chart-client";
  * Delegates chart rendering to client component (Recharts requires it)
  * Returns null silently if data is unavailable (errors logged to console)
  */
-export async function LanguageChart() {
+export async function getLanguagesInfo(): Promise<AggregatedLanguages | null> {
   try {
     // Fetch the pre-built GitHub data file
     // In production, this uses the deployed domain (via Vercel's VERCEL_URL)
@@ -53,19 +49,7 @@ export async function LanguageChart() {
       return null;
     }
 
-    return (
-      <div className="border-t border-border pt-6">
-        <h2 className="portfolio-card-subtitle uppercase tracking-wider mb-4">
-          Languages
-        </h2>
-
-        <LanguageChartClient languages={languages} />
-
-        <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-          {generateLanguageSummary(languages)}
-        </p>
-      </div>
-    );
+    return languageData;
   } catch (_error) {
     console.warn(
       "⚠️  Failed to load language data. This is expected during development if the file hasn't been generated yet. Run 'npm run build' to generate it.",

@@ -16,7 +16,6 @@ export const TextRotator = ({
   duration = 0.5,
   className = "",
 }: TextRotatorProps) => {
-  const [mounted, setMounted] = useState(false);
   const [displayText, setDisplayText] = useState("");
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const stateRef = useRef({
@@ -26,8 +25,6 @@ export const TextRotator = ({
   });
 
   useEffect(() => {
-    setMounted(true);
-
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
@@ -36,7 +33,7 @@ export const TextRotator = ({
   }, []);
 
   useEffect(() => {
-    if (!mounted || words.length === 0) return;
+    if (words.length === 0) return;
 
     const typeLoop = () => {
       const state = stateRef.current;
@@ -71,7 +68,7 @@ export const TextRotator = ({
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [mounted, words, interval, duration]);
+  }, [words, interval, duration]);
 
   return (
     <span className={cn("text-secondary font-medium", className)}>
