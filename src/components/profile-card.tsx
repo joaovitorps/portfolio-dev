@@ -5,14 +5,14 @@ import { IoIosMailUnread } from "react-icons/io";
 
 import { SiGithub, SiHackerrank } from "react-icons/si";
 import { TbFileCvFilled } from "react-icons/tb";
+import { LanguageChartSkeleton } from "@/features/most-used-languages/components/language-chart-skeleton";
+import { MostUsedLanguages } from "@/features/most-used-languages/components/most-used-languages";
 import type { ProfileCardProps } from "@/types";
 import { TextRotatorHeadline } from "./text-rotator-headline";
 import { ThemeToggle } from "./theme-toggle";
 import { ButtonLink } from "./ui/button-link";
 import { Card } from "./ui/card";
 import { CartoonButton } from "./ui/cartoon-button";
-import { LanguageChart } from "./ui/language-chart";
-import { LanguageChartSkeleton } from "./ui/language-chart-skeleton";
 
 // Icon mapping for social platforms
 const socialIconMap: Record<string, React.ReactNode> = {
@@ -122,7 +122,7 @@ export const ProfileCard = async ({ profile }: ProfileCardProps) => {
       </div>
 
       <Suspense fallback={<LanguageChartSkeleton />}>
-        <LanguageChart />
+        <MostUsedLanguages />
       </Suspense>
     </Card>
   );

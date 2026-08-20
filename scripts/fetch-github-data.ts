@@ -110,15 +110,37 @@ async function fetchRepoLanguages(
  * Import language color function from runtime library
  */
 async function getLanguageColor(language: string): Promise<string> {
-  // For build time, we need to import dynamically or just return a default
-  try {
-    const { getLanguageColor: getLangColor } = await import(
-      "@/lib/language-colors"
-    );
-    return getLangColor(language);
-  } catch (_error) {
-    return "#808080"; // Fallback gray color
+  // GitHub's official language colors
+  // Source: https://github.com/ozh/github-colors
+  const languageColors: Record<string, string> = {
+    TypeScript: "#3178c6",
+    JavaScript: "#f1e05a",
+    Python: "#3572A5",
+    Java: "#b07219",
+    Go: "#00ADD8",
+    Rust: "#dea584",
+    C: "#555555",
+    "C++": "#f34b7d",
+    "C#": "#178600",
+    Ruby: "#701516",
+    PHP: "#4F5D95",
+    Swift: "#F05138",
+    Kotlin: "#A97BFF",
+    Dart: "#00B4AB",
+    Scala: "#c22d40",
+    Shell: "#89e051",
+    HTML: "#e34c26",
+    CSS: "#563d7c",
+    SCSS: "#c6538c",
+    Vue: "#41b883",
+    Svelte: "#ff3e00",
+  };
+
+  function getLanguageColor(language: string): string {
+    return languageColors[language] || "#8b949e"; // Default to GitHub's gray
   }
+
+  return getLanguageColor(language);
 }
 
 /**
@@ -150,7 +172,7 @@ async function aggregateLanguages(
   // Convert to LanguageData array with percentages and colors
   const languages = await Promise.all(
     Array.from(languageMap.entries()).map(async ([language, bytes]) => ({
-      language,
+      name: language,
       bytes,
       percentage: (bytes / totalBytes) * 100,
       color: await getLanguageColor(language),
@@ -159,7 +181,7 @@ async function aggregateLanguages(
 
   languages.sort((a, b) => b.bytes - a.bytes); // Sort by usage (descending)
 
-  const topLanguages = languages.slice(0, 3).map((l) => l.language);
+  const topLanguages = languages.slice(0, 3).map((l) => l.name);
 
   return {
     languages,
