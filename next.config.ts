@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: process.env.NEXT_PUBLIC_GITHUB_AVATARS_DOMAIN!,
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
